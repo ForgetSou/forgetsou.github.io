@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://forgetsou.github.io/tags/index.html</loc>
-    
-    <lastmod>2021-04-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://forgetsou.github.io/categories/index.html</loc>
-    
-    <lastmod>2021-04-21</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://forgetsou.github.io/about/index.html</loc>
     
     <lastmod>2021-04-21</lastmod>
@@ -23,7 +9,21 @@
   </url>
   
   <url>
+    <loc>https://forgetsou.github.io/tags/index.html</loc>
+    
+    <lastmod>2021-04-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://forgetsou.github.io/about/%E5%85%B3%E4%BA%8E.html</loc>
+    
+    <lastmod>2021-04-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://forgetsou.github.io/categories/index.html</loc>
     
     <lastmod>2021-04-21</lastmod>
     
@@ -270,14 +270,14 @@
   </url>
   
   <url>
-    <loc>https://forgetsou.github.io/tags/BLE/</loc>
+    <loc>https://forgetsou.github.io/tags/AppKit/</loc>
     <lastmod>2021-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://forgetsou.github.io/tags/AppKit/</loc>
+    <loc>https://forgetsou.github.io/tags/BLE/</loc>
     <lastmod>2021-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -298,6 +298,13 @@
   </url>
   
   <url>
+    <loc>https://forgetsou.github.io/tags/%E6%97%A5%E5%B8%B8%E6%94%B6%E9%9B%86/</loc>
+    <lastmod>2021-04-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://forgetsou.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2021-04-30</lastmod>
     <changefreq>daily</changefreq>
@@ -306,13 +313,6 @@
   
   <url>
     <loc>https://forgetsou.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-04-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://forgetsou.github.io/tags/%E6%97%A5%E5%B8%B8%E6%94%B6%E9%9B%86/</loc>
     <lastmod>2021-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

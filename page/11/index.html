@@ -223,106 +223,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ForgetSou">
-      <meta itemprop="description" content=" 开发">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ForgetSou | Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/" class="post-title-link" itemprop="url">macOS开发-NSButton</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-19 18:11:13" itemprop="dateCreated datePublished" datetime="2020-10-19T18:11:13+08:00">2020-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 10:11:13" itemprop="dateModified" datetime="2020-10-20T10:11:13+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>19k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>17 分钟</span>
-            </span>
-
-        </div>
-      </header>
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h1><p><strong>按钮</strong>，主要用户通过<code>NSControl</code>控制点击、高亮等事件，同<code>iOS</code>的<code>UIButton</code></p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSButton</span> : <span class="title">NSControl</span> &lt;<span class="title">NSUserInterfaceValidations</span>, <span class="title">NSAccessibilityButton</span>, <span class="title">NSUserInterfaceCompression</span>&gt;</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*	NSButton 定义于 AppKit 框架；</span></span><br><span class="line"><span class="comment">*	NSButton 继承 NSControl</span></span><br><span class="line"><span class="comment">*/</span> </span><br></pre></td></tr></table></figure>
-
-<h1 id="二-源码"><a href="#二-源码" class="headerlink" title="二.源码"></a>二.源码</h1><h2 id="1-创建NSButton"><a href="#1-创建NSButton" class="headerlink" title="1.创建NSButton"></a>1.创建<code>NSButton</code></h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建带有标题和图像的标准按钮。在从左到右的本地化中，图像显示在标题的左侧。在从右到左的本地化中，它显示在右侧。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithTitle:(<span class="built_in">NSString</span> *)title image:(<span class="built_in">NSImage</span> *)image target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 创建带有标题的标准按钮。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithTitle:(<span class="built_in">NSString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的图像创建标准按钮。设置图像的accessibilityDescription属性以确保此控件的可访问性。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithImage:(<span class="built_in">NSImage</span> *)image target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的标题创建标准复选框。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)checkboxWithTitle:(<span class="built_in">NSString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的标题创建标准单选按钮。s</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)radioButtonWithTitle:(<span class="built_in">NSsString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-按钮基础配置"><a href="#2-按钮基础配置" class="headerlink" title="2.按钮基础配置"></a>2.按钮基础配置</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSButtonType</span>) &#123;</span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryLight</span>    = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypePushOnPushOff</span>     = <span class="number">1</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeToggle</span>            = <span class="number">2</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeSwitch</span>            = <span class="number">3</span>,<span class="comment">// 勾选框，不支持带图片，适合做多选</span></span><br><span class="line">    <span class="built_in">NSButtonTypeRadio</span>             = <span class="number">4</span>,<span class="comment">// 勾选框，不支持带图片，适合做单选。</span></span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryChange</span>   = <span class="number">5</span>,<span class="comment">// 文字会闪烁</span></span><br><span class="line">    <span class="built_in">NSButtonTypeOnOff</span>             = <span class="number">6</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryPushIn</span>   = <span class="number">7</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeAccelerator</span> API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>)) = <span class="number">8</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeMultiLevelAccelerator</span> API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>)) = <span class="number">9</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 设置按钮类型，如上NSButtonType枚举</span></span><br><span class="line">- (<span class="keyword">void</span>)setButtonType:(<span class="built_in">NSButtonType</span>)type;</span><br><span class="line"><span class="comment">// 显示文本</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="comment">// 富文本</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedTitle;</span><br><span class="line"><span class="comment">// 按钮打开状态时的标题，部分类型不显示备用标题</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alternateTitle;</span><br><span class="line"><span class="comment">// 富文本按钮打开时的标题</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedAlternateTitle;</span><br><span class="line"><span class="comment">// 按钮点击时的播放声音，默认为nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSSound</span> *sound;</span><br><span class="line"><span class="comment">// 拖动时发送长按或长时间悬停时的操作。默认为否。</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isSpringLoaded) <span class="built_in">BOOL</span> springLoaded API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>));</span><br><span class="line"><span class="comment">// 配置NSMultiLevelAcceleratorButton的最大允许级别，允许的值范围为[1,5]。默认为2。</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSInteger</span> maxAcceleratorLevel API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>));</span><br><span class="line"><span class="comment">// 为“continuous”为“YES”时发送的重复操作消息设置初始延迟和重复间隔（以秒为单位）。</span></span><br><span class="line">- (<span class="keyword">void</span>)setPeriodicDelay:(<span class="keyword">float</span>)delay interval:(<span class="keyword">float</span>)interval;</span><br><span class="line"><span class="comment">/*! 获取在“continuous”为YES时发送的重复操作消息的初始延迟和重复间隔（以秒为单位）。此方法的两个参数都不能为NULL。*/</span></span><br><span class="line">- (<span class="keyword">void</span>)getPeriodicDelay:(<span class="keyword">float</span> *)delay interval:(<span class="keyword">float</span> *)interval;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-配置按钮图片"><a href="#3-配置按钮图片" class="headerlink" title="3.配置按钮图片"></a>3.配置按钮图片</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSBezelStyle</span>) &#123;</span><br><span class="line">    <span class="built_in">NSBezelStyleRounded</span>           = <span class="number">1</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRegularSquare</span>     = <span class="number">2</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleDisclosure</span>        = <span class="number">5</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleShadowlessSquare</span>  = <span class="number">6</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleCircular</span>          = <span class="number">7</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleTexturedSquare</span>    = <span class="number">8</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleHelpButton</span>        = <span class="number">9</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleSmallSquare</span>       = <span class="number">10</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleTexturedRounded</span>   = <span class="number">11</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRoundRect</span>         = <span class="number">12</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRecessed</span>          = <span class="number">13</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRoundedDisclosure</span> = <span class="number">14</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleInline</span> API_AVAILABLE(macos(<span class="number">10.7</span>)) = <span class="number">15</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/*! 按钮系统边框样式 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSBezelStyle</span> bezelStyle;</span><br><span class="line"><span class="comment">/*! 是否绘制边框，bordered为NO时，bezelStyle设置无效 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isBordered) <span class="built_in">BOOL</span> bordered;</span><br><span class="line"><span class="comment">/*! 按钮是否透明 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isTransparent) <span class="built_in">BOOL</span> transparent;</span><br><span class="line"><span class="comment">/*! 按钮是否仅在指针位于按钮上方时才显示其边框。 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">BOOL</span> showsBorderOnlyWhileMouseInside;</span><br><span class="line"><span class="comment">/*! 按钮上的图片、设置nil时不显示图片 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSImage</span> *image;</span><br><span class="line"><span class="comment">/*! 按钮处于打开状态上的替代图片，部分类型不支持 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSImage</span> *alternateImage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSCellImagePosition</span>) &#123;</span><br><span class="line">    <span class="built_in">NSNoImage</span>       = <span class="number">0</span>,<span class="comment">// 没有图片</span></span><br><span class="line">    <span class="built_in">NSImageOnly</span>     = <span class="number">1</span>,<span class="comment">// 只显示图片</span></span><br><span class="line">    <span class="built_in">NSImageLeft</span>     = <span class="number">2</span>,<span class="comment">// 图片在左</span></span><br><span class="line">    <span class="built_in">NSImageRight</span>    = <span class="number">3</span>,<span class="comment">// 图片在右</span></span><br><span class="line">    <span class="built_in">NSImageBelow</span>    = <span class="number">4</span>,<span class="comment">// 图片在下</span></span><br><span class="line">    <span class="built_in">NSImageAbove</span>    = <span class="number">5</span>,<span class="comment">// 图片在上</span></span><br><span class="line">    <span class="built_in">NSImageOverlaps</span> = <span class="number">6</span>,<span class="comment">// 图片文字重叠</span></span><br><span class="line">    <span class="built_in">NSImageLeading</span>  API_AVAILABLE(macos(<span class="number">10.12</span>)) = <span class="number">7</span>,<span class="comment">// 前导</span></span><br><span class="line">    <span class="built_in">NSImageTrailing</span> API_AVAILABLE(macos(<span class="number">10.12</span>)) = <span class="number">8</span> <span class="comment">// 尾随</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/*! 图片相对于标题的位置，NSCellImagePosition类型如是上枚举 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSCellImagePosition</span> imagePosition;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSImageScaling</span>) &#123;</span><br><span class="line">    <span class="built_in">NSImageScaleProportionallyDown</span> = <span class="number">0</span>, <span class="comment">// 如果图像对于目的地太大，则将其缩小。保持纵横比。</span></span><br><span class="line">    <span class="built_in">NSImageScaleAxesIndependently</span>,      <span class="comment">// 缩放每个维度以完全适合目的地。不保留纵横比。</span></span><br><span class="line">    <span class="built_in">NSImageScaleNone</span>,                   <span class="comment">// 不缩放.</span></span><br><span class="line">    <span class="built_in">NSImageScaleProportionallyUpOrDown</span>, <span class="comment">// 将图像缩放到最大可能的尺寸，同时（1）停留在目标区域内（2）保持纵横比</span></span><br><span class="line">    <span class="built_in">NSScaleProportionally</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleProportionallyDown instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>)) = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSScaleToFit</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleAxesIndependently instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>)),</span><br><span class="line">    <span class="built_in">NSScaleNone</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleNone instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>))</span><br><span class="line">&#125; API_AVAILABLE(macos(<span class="number">10.5</span>));</span><br><span class="line"><span class="comment">/*! 缩放 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSImageScaling</span> imageScaling API_AVAILABLE(macos(<span class="number">10.5</span>));s</span><br><span class="line"><span class="comment">/*! 一个布尔值，用于确定按钮的图像和标题在按钮边框中的位置。如果为false，则根据按钮挡板边缘的imagePosition属性定位图像，并且标题位于剩余空间内。如果为true，则基于imagePosition属性将按钮的图像直接定位到标题的旁边，并且图像和标题作为单个单元定位在按钮挡板中。 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">BOOL</span> imageHugsTitle API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">/*! 将自定义颜色应用于按钮的边框（在支持它的外观中）。零值表示未修改的按钮外观。默认值为零。 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">copy</span>) <span class="built_in">NSColor</span> *bezelColor API_AVAILABLE(macos(<span class="number">10.12</span><span class="number">.2</span>));</span><br><span class="line"><span class="comment">/*! 将淡色应用于模板图像和文本内容，并结合其他适合主题的效果。仅适用于无边界按钮。零值表示没有颜色修改的标准效果集。默认值为零。非模板图像和属性化字符串值不受contentTintColor的影响。 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">copy</span>) <span class="built_in">NSColor</span> *contentTintColor API_AVAILABLE(macos(<span class="number">10.14</span>));</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSImageView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -407,6 +307,106 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSImageView/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ForgetSou">
+      <meta itemprop="description" content=" 开发">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ForgetSou | Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/" class="post-title-link" itemprop="url">macOS开发-NSButton</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-19 18:11:13" itemprop="dateCreated datePublished" datetime="2020-10-19T18:11:13+08:00">2020-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 10:11:13" itemprop="dateModified" datetime="2020-10-20T10:11:13+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>19k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>17 分钟</span>
+            </span>
+
+        </div>
+      </header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h1><p><strong>按钮</strong>，主要用户通过<code>NSControl</code>控制点击、高亮等事件，同<code>iOS</code>的<code>UIButton</code></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSButton</span> : <span class="title">NSControl</span> &lt;<span class="title">NSUserInterfaceValidations</span>, <span class="title">NSAccessibilityButton</span>, <span class="title">NSUserInterfaceCompression</span>&gt;</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*	NSButton 定义于 AppKit 框架；</span></span><br><span class="line"><span class="comment">*	NSButton 继承 NSControl</span></span><br><span class="line"><span class="comment">*/</span> </span><br></pre></td></tr></table></figure>
+
+<h1 id="二-源码"><a href="#二-源码" class="headerlink" title="二.源码"></a>二.源码</h1><h2 id="1-创建NSButton"><a href="#1-创建NSButton" class="headerlink" title="1.创建NSButton"></a>1.创建<code>NSButton</code></h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建带有标题和图像的标准按钮。在从左到右的本地化中，图像显示在标题的左侧。在从右到左的本地化中，它显示在右侧。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithTitle:(<span class="built_in">NSString</span> *)title image:(<span class="built_in">NSImage</span> *)image target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 创建带有标题的标准按钮。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithTitle:(<span class="built_in">NSString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的图像创建标准按钮。设置图像的accessibilityDescription属性以确保此控件的可访问性。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)buttonWithImage:(<span class="built_in">NSImage</span> *)image target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的标题创建标准复选框。</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)checkboxWithTitle:(<span class="built_in">NSString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">// 使用提供的标题创建标准单选按钮。s</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)radioButtonWithTitle:(<span class="built_in">NSsString</span> *)title target:(<span class="keyword">nullable</span> <span class="keyword">id</span>)target action:(<span class="keyword">nullable</span> SEL)action API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-按钮基础配置"><a href="#2-按钮基础配置" class="headerlink" title="2.按钮基础配置"></a>2.按钮基础配置</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSButtonType</span>) &#123;</span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryLight</span>    = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypePushOnPushOff</span>     = <span class="number">1</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeToggle</span>            = <span class="number">2</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeSwitch</span>            = <span class="number">3</span>,<span class="comment">// 勾选框，不支持带图片，适合做多选</span></span><br><span class="line">    <span class="built_in">NSButtonTypeRadio</span>             = <span class="number">4</span>,<span class="comment">// 勾选框，不支持带图片，适合做单选。</span></span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryChange</span>   = <span class="number">5</span>,<span class="comment">// 文字会闪烁</span></span><br><span class="line">    <span class="built_in">NSButtonTypeOnOff</span>             = <span class="number">6</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeMomentaryPushIn</span>   = <span class="number">7</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeAccelerator</span> API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>)) = <span class="number">8</span>,</span><br><span class="line">    <span class="built_in">NSButtonTypeMultiLevelAccelerator</span> API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>)) = <span class="number">9</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 设置按钮类型，如上NSButtonType枚举</span></span><br><span class="line">- (<span class="keyword">void</span>)setButtonType:(<span class="built_in">NSButtonType</span>)type;</span><br><span class="line"><span class="comment">// 显示文本</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="comment">// 富文本</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedTitle;</span><br><span class="line"><span class="comment">// 按钮打开状态时的标题，部分类型不显示备用标题</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alternateTitle;</span><br><span class="line"><span class="comment">// 富文本按钮打开时的标题</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedAlternateTitle;</span><br><span class="line"><span class="comment">// 按钮点击时的播放声音，默认为nil</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSSound</span> *sound;</span><br><span class="line"><span class="comment">// 拖动时发送长按或长时间悬停时的操作。默认为否。</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isSpringLoaded) <span class="built_in">BOOL</span> springLoaded API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>));</span><br><span class="line"><span class="comment">// 配置NSMultiLevelAcceleratorButton的最大允许级别，允许的值范围为[1,5]。默认为2。</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSInteger</span> maxAcceleratorLevel API_AVAILABLE(macos(<span class="number">10.10</span><span class="number">.3</span>));</span><br><span class="line"><span class="comment">// 为“continuous”为“YES”时发送的重复操作消息设置初始延迟和重复间隔（以秒为单位）。</span></span><br><span class="line">- (<span class="keyword">void</span>)setPeriodicDelay:(<span class="keyword">float</span>)delay interval:(<span class="keyword">float</span>)interval;</span><br><span class="line"><span class="comment">/*! 获取在“continuous”为YES时发送的重复操作消息的初始延迟和重复间隔（以秒为单位）。此方法的两个参数都不能为NULL。*/</span></span><br><span class="line">- (<span class="keyword">void</span>)getPeriodicDelay:(<span class="keyword">float</span> *)delay interval:(<span class="keyword">float</span> *)interval;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-配置按钮图片"><a href="#3-配置按钮图片" class="headerlink" title="3.配置按钮图片"></a>3.配置按钮图片</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSBezelStyle</span>) &#123;</span><br><span class="line">    <span class="built_in">NSBezelStyleRounded</span>           = <span class="number">1</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRegularSquare</span>     = <span class="number">2</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleDisclosure</span>        = <span class="number">5</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleShadowlessSquare</span>  = <span class="number">6</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleCircular</span>          = <span class="number">7</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleTexturedSquare</span>    = <span class="number">8</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleHelpButton</span>        = <span class="number">9</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleSmallSquare</span>       = <span class="number">10</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleTexturedRounded</span>   = <span class="number">11</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRoundRect</span>         = <span class="number">12</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRecessed</span>          = <span class="number">13</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleRoundedDisclosure</span> = <span class="number">14</span>,</span><br><span class="line">    <span class="built_in">NSBezelStyleInline</span> API_AVAILABLE(macos(<span class="number">10.7</span>)) = <span class="number">15</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/*! 按钮系统边框样式 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSBezelStyle</span> bezelStyle;</span><br><span class="line"><span class="comment">/*! 是否绘制边框，bordered为NO时，bezelStyle设置无效 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isBordered) <span class="built_in">BOOL</span> bordered;</span><br><span class="line"><span class="comment">/*! 按钮是否透明 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">getter</span>=isTransparent) <span class="built_in">BOOL</span> transparent;</span><br><span class="line"><span class="comment">/*! 按钮是否仅在指针位于按钮上方时才显示其边框。 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">BOOL</span> showsBorderOnlyWhileMouseInside;</span><br><span class="line"><span class="comment">/*! 按钮上的图片、设置nil时不显示图片 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSImage</span> *image;</span><br><span class="line"><span class="comment">/*! 按钮处于打开状态上的替代图片，部分类型不支持 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">strong</span>) <span class="built_in">NSImage</span> *alternateImage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSCellImagePosition</span>) &#123;</span><br><span class="line">    <span class="built_in">NSNoImage</span>       = <span class="number">0</span>,<span class="comment">// 没有图片</span></span><br><span class="line">    <span class="built_in">NSImageOnly</span>     = <span class="number">1</span>,<span class="comment">// 只显示图片</span></span><br><span class="line">    <span class="built_in">NSImageLeft</span>     = <span class="number">2</span>,<span class="comment">// 图片在左</span></span><br><span class="line">    <span class="built_in">NSImageRight</span>    = <span class="number">3</span>,<span class="comment">// 图片在右</span></span><br><span class="line">    <span class="built_in">NSImageBelow</span>    = <span class="number">4</span>,<span class="comment">// 图片在下</span></span><br><span class="line">    <span class="built_in">NSImageAbove</span>    = <span class="number">5</span>,<span class="comment">// 图片在上</span></span><br><span class="line">    <span class="built_in">NSImageOverlaps</span> = <span class="number">6</span>,<span class="comment">// 图片文字重叠</span></span><br><span class="line">    <span class="built_in">NSImageLeading</span>  API_AVAILABLE(macos(<span class="number">10.12</span>)) = <span class="number">7</span>,<span class="comment">// 前导</span></span><br><span class="line">    <span class="built_in">NSImageTrailing</span> API_AVAILABLE(macos(<span class="number">10.12</span>)) = <span class="number">8</span> <span class="comment">// 尾随</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/*! 图片相对于标题的位置，NSCellImagePosition类型如是上枚举 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSCellImagePosition</span> imagePosition;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSImageScaling</span>) &#123;</span><br><span class="line">    <span class="built_in">NSImageScaleProportionallyDown</span> = <span class="number">0</span>, <span class="comment">// 如果图像对于目的地太大，则将其缩小。保持纵横比。</span></span><br><span class="line">    <span class="built_in">NSImageScaleAxesIndependently</span>,      <span class="comment">// 缩放每个维度以完全适合目的地。不保留纵横比。</span></span><br><span class="line">    <span class="built_in">NSImageScaleNone</span>,                   <span class="comment">// 不缩放.</span></span><br><span class="line">    <span class="built_in">NSImageScaleProportionallyUpOrDown</span>, <span class="comment">// 将图像缩放到最大可能的尺寸，同时（1）停留在目标区域内（2）保持纵横比</span></span><br><span class="line">    <span class="built_in">NSScaleProportionally</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleProportionallyDown instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>)) = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">NSScaleToFit</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleAxesIndependently instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>)),</span><br><span class="line">    <span class="built_in">NSScaleNone</span> API_DEPRECATED(<span class="string">&quot;Use NSImageScaleNone instead&quot;</span>, macos(<span class="number">10.0</span>,<span class="number">10.10</span>))</span><br><span class="line">&#125; API_AVAILABLE(macos(<span class="number">10.5</span>));</span><br><span class="line"><span class="comment">/*! 缩放 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSImageScaling</span> imageScaling API_AVAILABLE(macos(<span class="number">10.5</span>));s</span><br><span class="line"><span class="comment">/*! 一个布尔值，用于确定按钮的图像和标题在按钮边框中的位置。如果为false，则根据按钮挡板边缘的imagePosition属性定位图像，并且标题位于剩余空间内。如果为true，则基于imagePosition属性将按钮的图像直接定位到标题的旁边，并且图像和标题作为单个单元定位在按钮挡板中。 */</span></span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">BOOL</span> imageHugsTitle API_AVAILABLE(macos(<span class="number">10.12</span>));</span><br><span class="line"><span class="comment">/*! 将自定义颜色应用于按钮的边框（在支持它的外观中）。零值表示未修改的按钮外观。默认值为零。 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">copy</span>) <span class="built_in">NSColor</span> *bezelColor API_AVAILABLE(macos(<span class="number">10.12</span><span class="number">.2</span>));</span><br><span class="line"><span class="comment">/*! 将淡色应用于模板图像和文本内容，并结合其他适合主题的效果。仅适用于无边界按钮。零值表示没有颜色修改的标准效果集。默认值为零。非模板图像和属性化字符串值不受contentTintColor的影响。 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">copy</span>) <span class="built_in">NSColor</span> *contentTintColor API_AVAILABLE(macos(<span class="number">10.14</span>));</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/19/macOS%E5%BC%80%E5%8F%91-NSButton/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
