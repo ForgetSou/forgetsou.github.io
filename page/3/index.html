@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xo1JSDmfbIZmzjUSZnJPiPQx5HNwXg9SLGEhCGpQr84">
+  <meta name="baidu-site-verification" content="1ef612086873632d1877d0621452f9d9">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"forgetsou.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"All","padding":18,"offset":12,"onmobile":true,"dimmer":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/bf51a722.js","daovoice")
+  daovoice('init', {
+      app_id: "bf51a722"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <meta name="description" content=" 开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ForgetSou | Blog">
+<meta property="og:url" content="https://forgetsou.github.io/page/3/index.html">
+<meta property="og:site_name" content="ForgetSou | Blog">
+<meta property="og:description" content=" 开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="ForgetSou">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://forgetsou.github.io/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ForgetSou | Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180944386-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-180944386-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?441a42b7d90588dbb3381cf389dd79aa";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ForgetSou | Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ForgetSou | Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">❤ 武统台湾 刻不容缓 ❤</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-首页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ForgetSou" class="github-corner" title="GitHub" aria-label="GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/11/11/iOS%E5%BC%80%E5%8F%91-iOS14%E7%94%BB%E4%B8%AD%E7%94%BB-OC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ForgetSou">
+      <meta itemprop="description" content=" 开发">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ForgetSou | Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/iOS%E5%BC%80%E5%8F%91-iOS14%E7%94%BB%E4%B8%AD%E7%94%BB-OC/" class="post-title-link" itemprop="url">iOS开发-iOS14画中画(OC)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 15:53:35" itemprop="dateCreated datePublished" datetime="2020-11-11T15:53:35+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一-简述"><a href="#一-简述" class="headerlink" title="一 简述"></a>一 简述</h1><p>一种控制器，用于在浮动的可调整大小的窗口中响应用户启动的画中画视频播放。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">API_AVAILABLE(ios(<span class="number">9.0</span>), macos(<span class="number">10.15</span>), tvos(<span class="number">14.0</span>)) API_UNAVAILABLE(watchos)</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">AVPictureInPictureController</span> : <span class="title">NSObject</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong></p>
+<p>画中画（PiP）是Apple希望始终在用户控制下的一项用户功能。仅在响应用户的明确请求时才调用PiP。如果某个应用以非用户直接指导的方式调用PiP，则App Store审核小组将拒绝它。</p>
+</blockquote>
+<p>要在iOS中使用画中画，要在Xcode中执行以下步骤：</p>
+<ol>
+<li>打开后台模式开启 Audio, AirPlay, and Picture in Picture</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gklbwh7jzpj30no07d3z7.jpg" alt="image-20201111164716519"></p>
+<ol start="2">
+<li>为音频会话配置合适的类别，如<code>AVAudioSessionCategoryPlayback</code> 、<code>AVAudioSessionCategoryPlayAndRecord</code>等</li>
+</ol>
+<blockquote>
+<p>重要</p>
+<p>不支持子类化和重写其方法，这会导致未定义的行为。</p>
+</blockquote>
+<h1 id="二-官方属性方法"><a href="#二-官方属性方法" class="headerlink" title="二 官方属性方法"></a>二 官方属性方法</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/iOS%E5%BC%80%E5%8F%91-iOS14%E7%94%BB%E4%B8%AD%E7%94%BB-OC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/11/11/iOS%E5%BC%80%E5%8F%91-AudioUnit%E5%AE%9E%E6%97%B6%E5%BD%95%E9%9F%B3-OC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ForgetSou">
+      <meta itemprop="description" content=" 开发">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ForgetSou | Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/iOS%E5%BC%80%E5%8F%91-AudioUnit%E5%AE%9E%E6%97%B6%E5%BD%95%E9%9F%B3-OC/" class="post-title-link" itemprop="url">iOS开发-AudioUnit实时录音(OC)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 15:52:54" itemprop="dateCreated datePublished" datetime="2020-11-11T15:52:54+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>15 分钟</span>
+            </span>
+
+        </div>
+      </header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-单声道录音"><a href="#1-单声道录音" class="headerlink" title="1.单声道录音"></a>1.单声道录音</h1><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  FSUnitRecorder.h</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;AVFoundation/AVFoundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^kAudioUnitRecorderOnputBlock)(AudioBufferList *bufferList);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FSUnitRecorder</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> sampleRate;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isRecording;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) kAudioUnitRecorderOnputBlock bufferListBlock;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)start;</span><br><span class="line">- (<span class="keyword">void</span>)stop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  FSUnitRecorder.m</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&quot;FSUnitRecorder.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FSUnitRecorder</span> ()</span></span><br><span class="line">&#123;</span><br><span class="line">    AudioUnit audioUnit;</span><br><span class="line">    <span class="built_in">BOOL</span> audioComponentInitialized;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) AudioStreamBasicDescription inputStreamDesc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">FSUnitRecorder</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">            [<span class="keyword">self</span> defaultSetting];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)defaultSetting &#123;</span><br><span class="line">  <span class="comment">// 优先16000，如果设备不支持使用其它采样率</span></span><br><span class="line">    <span class="built_in">NSArray</span> *sampleRates = @[@<span class="number">16000</span>, @<span class="number">11025</span>, @<span class="number">22050</span>, @<span class="number">44100</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSNumber</span> *sampleRate <span class="keyword">in</span> sampleRates) &#123;</span><br><span class="line">        OSStatus status = [<span class="keyword">self</span> prepareRecord:sampleRate.doubleValue];</span><br><span class="line">        <span class="keyword">if</span> (status == noErr) &#123;</span><br><span class="line">            <span class="keyword">self</span>.sampleRate = [sampleRate doubleValue];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (OSStatus)prepareRecord:(<span class="keyword">double</span>)sampleRate &#123;</span><br><span class="line">    OSStatus status = noErr;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSError</span> *error;</span><br><span class="line">    [[<span class="built_in">AVAudioSession</span> sharedInstance] setCategory:<span class="built_in">AVAudioSessionCategoryPlayAndRecord</span> withOptions:<span class="built_in">AVAudioSessionCategoryOptionMixWithOthers</span> | <span class="built_in">AVAudioSessionCategoryOptionAllowBluetooth</span>  error:&amp;error];</span><br><span class="line">    [[<span class="built_in">AVAudioSession</span> sharedInstance] setActive:<span class="literal">YES</span> error:&amp;error];</span><br><span class="line">  <span class="comment">// This doesn&#x27;t seem to really indicate a problem (iPhone 6s Plus)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> IGNORE</span></span><br><span class="line">    <span class="built_in">NSInteger</span> inputChannels = session.inputNumberOfChannels;</span><br><span class="line">    <span class="keyword">if</span> (!inputChannels) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;ERROR: NO AUDIO INPUT DEVICE&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!audioComponentInitialized) &#123;</span><br><span class="line">        audioComponentInitialized = <span class="literal">YES</span>;</span><br><span class="line">        <span class="comment">// Describe the RemoteIO unit</span></span><br><span class="line">        AudioComponentDescription audioComponentDescription;</span><br><span class="line">        audioComponentDescription.componentType = kAudioUnitType_Output;</span><br><span class="line">        audioComponentDescription.componentSubType = kAudioUnitSubType_RemoteIO;</span><br><span class="line">        audioComponentDescription.componentManufacturer = kAudioUnitManufacturer_Apple;</span><br><span class="line">        audioComponentDescription.componentFlags = <span class="number">0</span>;</span><br><span class="line">        audioComponentDescription.componentFlagsMask = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get the RemoteIO unit</span></span><br><span class="line">        AudioComponent remoteIOComponent = AudioComponentFindNext(<span class="literal">NULL</span>,&amp;audioComponentDescription);</span><br><span class="line">        status = AudioComponentInstanceNew(remoteIOComponent,&amp;(<span class="keyword">self</span>-&gt;audioUnit));</span><br><span class="line">        <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t get RemoteIO unit instance&quot;</span>)) &#123;</span><br><span class="line">          <span class="keyword">return</span> status;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">UInt32</span> oneFlag = <span class="number">1</span>;</span><br><span class="line">      AudioUnitElement bus0 = <span class="number">0</span>;</span><br><span class="line">      AudioUnitElement bus1 = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> ((<span class="literal">NO</span>)) &#123;</span><br><span class="line">        <span class="comment">// Configure the RemoteIO unit for playback</span></span><br><span class="line">        status = AudioUnitSetProperty (<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                       kAudioOutputUnitProperty_EnableIO,</span><br><span class="line">                                       kAudioUnitScope_Output,</span><br><span class="line">                                       bus0,</span><br><span class="line">                                       &amp;oneFlag,</span><br><span class="line">                                       <span class="keyword">sizeof</span>(oneFlag));</span><br><span class="line">        <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t enable RemoteIO output&quot;</span>)) &#123;</span><br><span class="line">          <span class="keyword">return</span> status;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Configure the RemoteIO unit for input</span></span><br><span class="line">      status = AudioUnitSetProperty(<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                    kAudioOutputUnitProperty_EnableIO,</span><br><span class="line">                                    kAudioUnitScope_Input,</span><br><span class="line">                                    bus1,</span><br><span class="line">                                    &amp;oneFlag,</span><br><span class="line">                                    <span class="keyword">sizeof</span>(oneFlag));</span><br><span class="line">      <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t enable RemoteIO input&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      AudioStreamBasicDescription asbd;</span><br><span class="line">      memset(&amp;asbd, <span class="number">0</span>, <span class="keyword">sizeof</span>(asbd));</span><br><span class="line">      asbd.mSampleRate = sampleRate; <span class="comment">// 采样率</span></span><br><span class="line">      asbd.mFormatID = kAudioFormatLinearPCM;</span><br><span class="line">      asbd.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;</span><br><span class="line">      asbd.mBytesPerPacket = <span class="number">2</span>;</span><br><span class="line">      asbd.mFramesPerPacket = <span class="number">1</span>;</span><br><span class="line">      asbd.mBytesPerFrame = <span class="number">2</span>;</span><br><span class="line">      asbd.mChannelsPerFrame = <span class="number">2</span>;</span><br><span class="line">      asbd.mBitsPerChannel = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Set format for output (bus 0) on the RemoteIO&#x27;s input scope</span></span><br><span class="line">      status = AudioUnitSetProperty(<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                    kAudioUnitProperty_StreamFormat,</span><br><span class="line">                                    kAudioUnitScope_Input,</span><br><span class="line">                                    bus0,</span><br><span class="line">                                    &amp;asbd,</span><br><span class="line">                                    <span class="keyword">sizeof</span>(asbd));</span><br><span class="line">      <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t set the ASBD for RemoteIO on input scope/bus 0&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Set format for mic input (bus 1) on RemoteIO&#x27;s output scope</span></span><br><span class="line">      status = AudioUnitSetProperty(<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                    kAudioUnitProperty_StreamFormat,</span><br><span class="line">                                    kAudioUnitScope_Output,</span><br><span class="line">                                    bus1,</span><br><span class="line">                                    &amp;asbd,</span><br><span class="line">                                    <span class="keyword">sizeof</span>(asbd));</span><br><span class="line">      <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t set the ASBD for RemoteIO on output scope/bus 1&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Set the recording callback</span></span><br><span class="line">      AURenderCallbackStruct callbackStruct;</span><br><span class="line">      callbackStruct.inputProc = inputCallBackFun;</span><br><span class="line">      callbackStruct.inputProcRefCon = (__bridge <span class="keyword">void</span> *) <span class="keyword">self</span>;</span><br><span class="line">      status = AudioUnitSetProperty(<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                    kAudioOutputUnitProperty_SetInputCallback,</span><br><span class="line">                                    kAudioUnitScope_Global,</span><br><span class="line">                                    bus1,</span><br><span class="line">                                    &amp;callbackStruct,</span><br><span class="line">                                    <span class="keyword">sizeof</span> (callbackStruct));</span><br><span class="line">      <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t set RemoteIO&#x27;s render callback on bus 0&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> ((<span class="literal">NO</span>)) &#123;</span><br><span class="line">        <span class="comment">// Set the playback callback</span></span><br><span class="line">        AURenderCallbackStruct callbackStruct;</span><br><span class="line">        callbackStruct.inputProc = playbackCallback;</span><br><span class="line">        callbackStruct.inputProcRefCon = (__bridge <span class="keyword">void</span> *) <span class="keyword">self</span>;</span><br><span class="line">        status = AudioUnitSetProperty(<span class="keyword">self</span>-&gt;audioUnit,</span><br><span class="line">                                      kAudioUnitProperty_SetRenderCallback,</span><br><span class="line">                                      kAudioUnitScope_Global,</span><br><span class="line">                                      bus0,</span><br><span class="line">                                      &amp;callbackStruct,</span><br><span class="line">                                      <span class="keyword">sizeof</span> (callbackStruct));</span><br><span class="line">        <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t set RemoteIO&#x27;s render callback on bus 0&quot;</span>)) &#123;</span><br><span class="line">          <span class="keyword">return</span> status;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Initialize the RemoteIO unit</span></span><br><span class="line">      status = AudioUnitInitialize(<span class="keyword">self</span>-&gt;audioUnit);</span><br><span class="line">      <span class="keyword">if</span> (CheckError(status, <span class="string">&quot;Couldn&#x27;t initialize the RemoteIO unit&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)start &#123;</span><br><span class="line">    [<span class="keyword">self</span> deleteAudioFile];</span><br><span class="line">    CheckError(AudioOutputUnitStart(audioUnit), <span class="string">&quot;AudioOutputUnitStop failed&quot;</span>);</span><br><span class="line">    _isRecording = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)stop &#123;</span><br><span class="line">    CheckError(AudioOutputUnitStop(audioUnit),</span><br><span class="line">    <span class="string">&quot;AudioOutputUnitStop failed&quot;</span>);</span><br><span class="line">    _isRecording = <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)deleteAudioFile &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *pcmPath = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject stringByAppendingPathComponent:<span class="string">@&quot;record.mp3&quot;</span>];</span><br><span class="line">    <span class="keyword">if</span> ([[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:pcmPath]) &#123;</span><br><span class="line">        [[<span class="built_in">NSFileManager</span> defaultManager] removeItemAtPath:pcmPath error:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    CheckError(AudioComponentInstanceDispose(audioUnit),</span><br><span class="line">               <span class="string">&quot;AudioComponentInstanceDispose failed&quot;</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;UnitRecorder销毁&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> OSStatus CheckError(OSStatus error, <span class="keyword">const</span> <span class="keyword">char</span> *operation) &#123;</span><br><span class="line">  <span class="keyword">if</span> (error == noErr) &#123;</span><br><span class="line">    <span class="keyword">return</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">char</span> errorString[<span class="number">20</span>] = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="comment">// See if it appears to be a 4-char-code</span></span><br><span class="line">  *(<span class="built_in">UInt32</span> *)(errorString + <span class="number">1</span>) = <span class="built_in">CFSwapInt32HostToBig</span>(error);</span><br><span class="line">  <span class="keyword">if</span> (isprint(errorString[<span class="number">1</span>]) &amp;&amp; isprint(errorString[<span class="number">2</span>]) &amp;&amp;</span><br><span class="line">      isprint(errorString[<span class="number">3</span>]) &amp;&amp; isprint(errorString[<span class="number">4</span>])) &#123;</span><br><span class="line">    errorString[<span class="number">0</span>] = errorString[<span class="number">5</span>] = <span class="string">&#x27;\&#x27;&#x27;</span>;</span><br><span class="line">    errorString[<span class="number">6</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// No, format it as an integer</span></span><br><span class="line">    sprintf(errorString, <span class="string">&quot;%d&quot;</span>, (<span class="keyword">int</span>)error);</span><br><span class="line">  &#125;</span><br><span class="line">  fprintf(stderr, <span class="string">&quot;Error: %s (%s)\n&quot;</span>, operation, errorString);</span><br><span class="line">  <span class="keyword">return</span> error;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> OSStatus playbackCallback(<span class="keyword">void</span> *inRefCon,</span><br><span class="line">                                 AudioUnitRenderActionFlags *ioActionFlags,</span><br><span class="line">                                 <span class="keyword">const</span> AudioTimeStamp *inTimeStamp,</span><br><span class="line">                                 <span class="built_in">UInt32</span> inBusNumber,</span><br><span class="line">                                 <span class="built_in">UInt32</span> inNumberFrames,</span><br><span class="line">                                 AudioBufferList *ioData) &#123;</span><br><span class="line">  OSStatus status = noErr;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Notes: ioData contains buffers (may be more than one!)</span></span><br><span class="line">  <span class="comment">// Fill them up as much as you can. Remember to set the size value in each buffer to match how</span></span><br><span class="line">  <span class="comment">// much data is in the buffer.</span></span><br><span class="line">  FSUnitRecorder *recorder = (__bridge FSUnitRecorder *) inRefCon;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">UInt32</span> bus1 = <span class="number">1</span>;</span><br><span class="line">  status = AudioUnitRender(recorder-&gt;audioUnit,</span><br><span class="line">                           ioActionFlags,</span><br><span class="line">                           inTimeStamp,</span><br><span class="line">                           bus1,</span><br><span class="line">                           inNumberFrames,</span><br><span class="line">                           ioData);</span><br><span class="line">  CheckError(status, <span class="string">&quot;Couldn&#x27;t render from RemoteIO unit&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> OSStatus inputCallBackFun(<span class="keyword">void</span> *inRefCon,</span><br><span class="line">                    AudioUnitRenderActionFlags *ioActionFlags,</span><br><span class="line">                    <span class="keyword">const</span> AudioTimeStamp *inTimeStamp,</span><br><span class="line">                    <span class="built_in">UInt32</span> inBusNumber,</span><br><span class="line">                    <span class="built_in">UInt32</span> inNumberFrames,</span><br><span class="line">                    AudioBufferList * __<span class="keyword">nullable</span> ioData)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    FSUnitRecorder *recorder = (__bridge FSUnitRecorder *)(inRefCon);</span><br><span class="line">    </span><br><span class="line">    AudioBufferList bufferList;</span><br><span class="line">    bufferList.mNumberBuffers = <span class="number">1</span>;</span><br><span class="line">    bufferList.mBuffers[<span class="number">0</span>].mData = <span class="literal">NULL</span>;</span><br><span class="line">    bufferList.mBuffers[<span class="number">0</span>].mDataByteSize = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    AudioUnitRender(recorder-&gt;audioUnit,</span><br><span class="line">                    ioActionFlags,</span><br><span class="line">                    inTimeStamp,</span><br><span class="line">                    <span class="number">1</span>,</span><br><span class="line">                    inNumberFrames,</span><br><span class="line">                    &amp;bufferList);</span><br><span class="line">    <span class="keyword">if</span> (recorder.bufferListBlock) &#123;</span><br><span class="line">        recorder.bufferListBlock(&amp;bufferList);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> noErr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (FSUnitRecorder *)recorder &#123;</span><br><span class="line">    <span class="keyword">if</span> (!_recorder) &#123;</span><br><span class="line">        _recorder = [[FSUnitRecorder alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _recorder;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@weakify(<span class="keyword">self</span>);</span><br><span class="line"><span class="keyword">self</span>.recorder.bufferListBlock = ^(AudioBufferList * _Nonnull bufferList) &#123;</span><br><span class="line">    @strongify(<span class="keyword">self</span>);</span><br><span class="line">    AudioBuffer buffer = bufferList-&gt;mBuffers[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithBytes:buffer.mData length:buffer.mDataByteSize];</span><br><span class="line">  <span class="comment">// 处理数据</span></span><br><span class="line">    [<span class="keyword">self</span> processSampleData:data];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-双声道录音"><a href="#2-双声道录音" class="headerlink" title="2.双声道录音"></a>2.双声道录音</h1><p><strong>说明：</strong><br>公司新业务要接入蓝牙耳机，支持蓝牙耳机，左右耳机分别进行语音识别等功能。该业务牵扯到实时双通道录音，分别提取左右buffer，类似的业务需求市场上也是有的，比如AirPods，百度的一款蓝牙耳机（小度APP“流浪地球模式”，具体可以买一个个试用下）。<br>废话不多说了，直接看代码就行。</p>
+<p><strong>ZDUnitRecorder.h</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;AVFoundation/AVFoundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^kAudioUnitRecorderOnputBlock)(AudioBufferList *bufferList);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ZDUnitRecorder</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> sampleRate;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">BOOL</span> isRecording;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) kAudioUnitRecorderOnputBlock bufferListBlock;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)start;</span><br><span class="line">- (<span class="keyword">void</span>)stop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ZDUnitRecorder.m</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/iOS%E5%BC%80%E5%8F%91-AudioUnit%E5%AE%9E%E6%97%B6%E5%BD%95%E9%9F%B3-OC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ForgetSou"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">ForgetSou</p>
+  <div class="site-description" itemprop="description"> 开发</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ForgetSou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ForgetSou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:johnvertois@gmail.com" title="E-Mail → mailto:johnvertois@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/5887063593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;5887063593" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/p710041025" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;p710041025" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/f7d42a961b4e" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;f7d42a961b4e" rel="noopener" target="_blank"><i class="fab fa-accusoft fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_43956503" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43956503" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.im/user/1231079303818232" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;1231079303818232" rel="noopener" target="_blank"><i class="fab fa-joget fa-fw"></i>掘金</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/forgetsou" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;forgetsou" rel="noopener" target="_blank"><i class="fab fa-cotton-bureau fa-fw"></i>博客园</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/" title="YouTube → https:&#x2F;&#x2F;youtube.com" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com&#x2F;" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.google.com/" title="https:&#x2F;&#x2F;www.google.com&#x2F;" rel="noopener" target="_blank">谷歌</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.youtube.com/" title="https:&#x2F;&#x2F;www.youtube.com&#x2F;" rel="noopener" target="_blank">油管</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ForgetSou</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:27</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://forgetsou.github.io/page/3/',]
+      });
+      });
+  </script>
+
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- 樱花特效 -->
+<script async src="/js/fairyDustCursor.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+</script>
+</html>

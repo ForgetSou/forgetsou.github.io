@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xo1JSDmfbIZmzjUSZnJPiPQx5HNwXg9SLGEhCGpQr84">
+  <meta name="baidu-site-verification" content="1ef612086873632d1877d0621452f9d9">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"forgetsou.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"All","padding":18,"offset":12,"onmobile":true,"dimmer":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/bf51a722.js","daovoice")
+  daovoice('init', {
+      app_id: "bf51a722"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <meta name="description" content="1.删除ToolBar下面的分割线toolbar.showsBaselineSeparator &#x3D; NO;  2.修改TextField的蓝色或橙色边框self.textField.focusRingType &#x3D; NSFocusRingTypeNone;  3.打开已安装的其他软件&#x2F;&#x2F; 1NSString *appPath &#x3D; @&quot;&#x2F;Applications&#x2F;Foxmail.app&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常开发小知识点收集">
+<meta property="og:url" content="https://forgetsou.github.io/2020/11/12/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/index.html">
+<meta property="og:site_name" content="ForgetSou | Blog">
+<meta property="og:description" content="1.删除ToolBar下面的分割线toolbar.showsBaselineSeparator &#x3D; NO;  2.修改TextField的蓝色或橙色边框self.textField.focusRingType &#x3D; NSFocusRingTypeNone;  3.打开已安装的其他软件&#x2F;&#x2F; 1NSString *appPath &#x3D; @&quot;&#x2F;Applications&#x2F;Foxmail.app&amp;qu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0081Kckwly1glbkbvf4xaj30740bcdgc.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0081Kckwly1glbk60pl6aj30u01hc47q.jpg">
+<meta property="article:published_time" content="2020-11-12T06:17:08.000Z">
+<meta property="article:modified_time" content="2020-11-12T06:17:08.000Z">
+<meta property="article:author" content="ForgetSou">
+<meta property="article:tag" content="OC">
+<meta property="article:tag" content="日常收集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/0081Kckwly1glbkbvf4xaj30740bcdgc.jpg">
+
+<link rel="canonical" href="https://forgetsou.github.io/2020/11/12/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>日常开发小知识点收集 | ForgetSou | Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180944386-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-180944386-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?441a42b7d90588dbb3381cf389dd79aa";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ForgetSou | Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ForgetSou | Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">❤ 武统台湾 刻不容缓 ❤</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-首页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ForgetSou" class="github-corner" title="GitHub" aria-label="GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/11/12/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ForgetSou">
+      <meta itemprop="description" content=" 开发">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ForgetSou | Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          日常开发小知识点收集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-12 14:17:08" itemprop="dateCreated datePublished" datetime="2020-11-12T14:17:08+08:00">2020-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>18k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>16 分钟</span>
+            </span>
+
+        </div>
+      </header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-删除ToolBar下面的分割线"><a href="#1-删除ToolBar下面的分割线" class="headerlink" title="1.删除ToolBar下面的分割线"></a>1.删除ToolBar下面的分割线</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">toolbar.showsBaselineSeparator = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-修改TextField的蓝色或橙色边框"><a href="#2-修改TextField的蓝色或橙色边框" class="headerlink" title="2.修改TextField的蓝色或橙色边框"></a>2.修改TextField的蓝色或橙色边框</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">self</span>.textField.focusRingType = <span class="built_in">NSFocusRingTypeNone</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-打开已安装的其他软件"><a href="#3-打开已安装的其他软件" class="headerlink" title="3.打开已安装的其他软件"></a>3.打开已安装的其他软件</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="built_in">NSString</span> *appPath = <span class="string">@&quot;/Applications/Foxmail.app&quot;</span>;</span><br><span class="line">[[<span class="built_in">NSWorkspace</span> sharedWorkspace] openFile:appPath];</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line">[[<span class="built_in">NSWorkspace</span> sharedWorkspace] launchApplication:<span class="string">@&quot;Foxmail&quot;</span>];</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-打开网页"><a href="#4-打开网页" class="headerlink" title="4.打开网页"></a>4.打开网页</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">[[<span class="built_in">NSWorkspace</span> sharedWorkspace] openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;https://www.baidu.com&quot;</span>]];</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Color生成纯色图片（iOS）"><a href="#5-Color生成纯色图片（iOS）" class="headerlink" title="5.Color生成纯色图片（iOS）"></a>5.Color生成纯色图片（iOS）</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成纯色图片</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)pureColorImageWithColor:(<span class="built_in">UIColor</span> *)color &#123;</span><br><span class="line">  <span class="built_in">CGSize</span> imageSize = <span class="built_in">CGSizeMake</span>(<span class="number">1.0</span>f, <span class="number">1.0</span>f);</span><br><span class="line">  <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(imageSize, <span class="literal">NO</span>, <span class="number">0.0</span>f);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">CGContextRef</span> theContext = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">  <span class="built_in">CGContextSetFillColorWithColor</span>(theContext, color.CGColor);</span><br><span class="line">  <span class="built_in">CGContextFillRect</span>(theContext, <span class="built_in">CGRectMake</span>(<span class="number">0.0</span>f, <span class="number">0.0</span>f, imageSize.width, imageSize.height));</span><br><span class="line"></span><br><span class="line">  <span class="built_in">CGImageRef</span> theCGImage = <span class="built_in">CGBitmapContextCreateImage</span>(theContext);</span><br><span class="line">  <span class="built_in">UIImage</span> *theImage;</span><br><span class="line">  <span class="keyword">if</span> ([[<span class="built_in">UIImage</span> <span class="keyword">class</span>] respondsToSelector:<span class="keyword">@selector</span>(imageWithCGImage:scale:orientation:)]) &#123;</span><br><span class="line">      theImage = [<span class="built_in">UIImage</span> imageWithCGImage:theCGImage scale:[<span class="built_in">UIScreen</span> mainScreen].scale orientation:<span class="built_in">UIImageOrientationUp</span>];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      theImage = [<span class="built_in">UIImage</span> imageWithCGImage:theCGImage];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">CGImageRelease</span>(theCGImage);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> theImage;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 生成纯色圆角图片</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)pureColorImageWithSize:(<span class="built_in">CGSize</span>)size</span><br><span class="line">      color:(<span class="built_in">UIColor</span> *)color</span><br><span class="line">  cornRadius:(<span class="built_in">CGFloat</span>)radius &#123;</span><br><span class="line">  <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">CGContextRef</span> cxt = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">CGContextSetFillColorWithColor</span>(cxt, color.CGColor);</span><br><span class="line">  <span class="built_in">CGContextSetStrokeColorWithColor</span>(cxt, color.CGColor);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">CGContextMoveToPoint</span>(cxt, size.width, size.height-radius);</span><br><span class="line">  <span class="built_in">CGContextAddArcToPoint</span>(cxt, size.width, size.height, size.width-radius, size.height, radius);<span class="comment">//右下角</span></span><br><span class="line">  <span class="built_in">CGContextAddArcToPoint</span>(cxt, <span class="number">0</span>, size.height, <span class="number">0</span>, size.height-radius, radius);<span class="comment">//左下角</span></span><br><span class="line">  <span class="built_in">CGContextAddArcToPoint</span>(cxt, <span class="number">0</span>, <span class="number">0</span>, radius, <span class="number">0</span>, radius);<span class="comment">//左上角</span></span><br><span class="line">  <span class="built_in">CGContextAddArcToPoint</span>(cxt, size.width, <span class="number">0</span>, size.width, radius, radius);<span class="comment">//右上角</span></span><br><span class="line">  <span class="built_in">CGContextClosePath</span>(cxt);</span><br><span class="line">  <span class="built_in">CGContextDrawPath</span>(cxt, kCGPathFillStroke);</span><br><span class="line">  <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">  <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">  <span class="keyword">return</span> image;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-时间格式转换"><a href="#6-时间格式转换" class="headerlink" title="6.时间格式转换"></a>6.时间格式转换</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 根据格式生成时间字符串</span></span><br><span class="line"><span class="comment">/// @param date 时间NSDate</span></span><br><span class="line"><span class="comment">/// @param formatStr 时间格式 eg:&quot;YYYY-MM-dd HH:mm:ss&quot;</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSString</span> *)stringFromDate:(<span class="built_in">NSDate</span> *)date formatStr:(<span class="built_in">NSString</span> *)formatStr &#123;</span><br><span class="line">  <span class="built_in">NSDateFormatter</span> *formatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">  [formatter setDateFormat:formatStr];</span><br><span class="line">  <span class="keyword">return</span> [formatter stringFromDate:date];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/// 根据格式生成NSDate</span></span><br><span class="line">  <span class="comment">/// @param dateString 时间</span></span><br><span class="line">  <span class="comment">/// @param formatStr 时间格式 eg:&quot;YYYY-MM-dd HH:mm:ss&quot;</span></span><br><span class="line">+ (<span class="built_in">NSDate</span> *)dateFromString:(<span class="built_in">NSString</span> *)dateString formatStr:(<span class="built_in">NSString</span> *)formatStr &#123;</span><br><span class="line">  <span class="built_in">NSDateFormatter</span> *formatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">  [formatter setDateFormat:formatStr];</span><br><span class="line">  <span class="keyword">return</span> [formatter dateFromString:dateString];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/// 获取当前时间戳(秒)</span></span><br><span class="line">+ (<span class="built_in">NSNumber</span> *)getCurrentTimeStampSec &#123;</span><br><span class="line">  <span class="built_in">NSDate</span> *date = [<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">0</span>];</span><br><span class="line">  <span class="built_in">NSTimeInterval</span> timeInterval = [date timeIntervalSince1970];</span><br><span class="line">  <span class="built_in">NSNumber</span> *u = [<span class="built_in">NSNumber</span> numberWithInteger:timeInterval];</span><br><span class="line">  <span class="keyword">return</span> u;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/// 获取当前时间戳(毫秒)</span></span><br><span class="line">+ (<span class="built_in">NSNumber</span> *)getCurrentTimeStampMilliSec &#123;</span><br><span class="line">  <span class="built_in">NSDate</span> *date = [<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> timeInterval = [date timeIntervalSince1970] * <span class="number">1000</span>;</span><br><span class="line">  <span class="built_in">NSNumber</span> *u = [<span class="built_in">NSNumber</span> numberWithLongLong:timeInterval];</span><br><span class="line">  <span class="keyword">return</span> u;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-合法性"><a href="#7-合法性" class="headerlink" title="7.合法性"></a>7.合法性</h2><ul>
+<li>手机号是否合法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)isValidMobile:(<span class="built_in">NSString</span> *)mobile &#123;</span><br><span class="line">    <span class="built_in">BOOL</span> isValid = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!kStringIsEmpty(mobile) &amp;&amp; mobile.length == <span class="number">11</span>) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *<span class="built_in">CM_NUM</span> = <span class="string">@&quot;^((13[0-9])|(14[5-9])|(15([0-3]|[5-9]))|(16[6-7])|(17[1-8])|(18[0-9])|(19[1|3])|(19[5|6])|(19[8|9]))\\d&#123;8&#125;$&quot;</span>;</span><br><span class="line">        <span class="built_in">NSPredicate</span> *pred = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@&quot;SELF MATCHES %@&quot;</span>, <span class="built_in">CM_NUM</span>];</span><br><span class="line">        <span class="built_in">BOOL</span> isMatch = [pred evaluateWithObject:mobile];</span><br><span class="line">        <span class="keyword">if</span> (isMatch) &#123;</span><br><span class="line">            isValid = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isValid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Url是否合法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)isValidUrl:(<span class="built_in">NSString</span> *)urlStr &#123;</span><br><span class="line">  <span class="built_in">NSString</span> *regex =<span class="string">@&quot;[a-zA-z]+://[^\\s]*&quot;</span>;</span><br><span class="line">  <span class="built_in">NSPredicate</span> *urlTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@&quot;SELF MATCHES %@&quot;</span>,regex];</span><br><span class="line">  <span class="keyword">return</span> [urlTest evaluateWithObject:urlStr];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>银行卡是否合法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)isValidCardNo:(<span class="built_in">NSString</span> *)cardNumber &#123;</span><br><span class="line">	<span class="keyword">int</span> oddSum = <span class="number">0</span>;    <span class="comment">// 奇数和</span></span><br><span class="line">	<span class="keyword">int</span> evenSum = <span class="number">0</span>;    <span class="comment">// 偶数和</span></span><br><span class="line">	<span class="keyword">int</span> allSum =<span class="number">0</span>;    <span class="comment">// 总和</span></span><br><span class="line">    <span class="comment">// 循环加和</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">NSInteger</span> i = <span class="number">1</span>; i &lt;= cardNumber.length; i++) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *theNumber = [cardNumber substringWithRange:<span class="built_in">NSMakeRange</span>(cardNumber.length-i,<span class="number">1</span>)];</span><br><span class="line">        <span class="keyword">int</span> lastNumber = [theNumber intValue];</span><br><span class="line">        <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 偶数位</span></span><br><span class="line">            lastNumber *=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(lastNumber &gt;<span class="number">9</span>) &#123;</span><br><span class="line">                lastNumber -=<span class="number">9</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            evenSum += lastNumber;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 奇数位</span></span><br><span class="line">            oddSum += lastNumber;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    allSum = oddSum + evenSum;</span><br><span class="line">    <span class="comment">// 是否合法</span></span><br><span class="line">    <span class="keyword">if</span>(allSum%<span class="number">10</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断邮箱是否合法<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)isValidEmail:(<span class="built_in">NSString</span> *)email &#123;</span><br><span class="line">    <span class="keyword">if</span> ([CCUtility checkEmptyString:email]) <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *emailRegex = <span class="string">@&quot;^(([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)))@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$&quot;</span>;</span><br><span class="line">    <span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@&quot;SELF MATCHES %@&quot;</span>, emailRegex];</span><br><span class="line">    <span class="keyword">return</span> [emailTest evaluateWithObject:email];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)isValidUrl:(<span class="built_in">NSString</span> *)urlStr &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *regex =<span class="string">@&quot;[a-zA-z]+://[^\\s]*&quot;</span>;</span><br><span class="line">    <span class="built_in">NSPredicate</span> *urlTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@&quot;SELF MATCHES %@&quot;</span>,regex];</span><br><span class="line">    <span class="keyword">return</span> [urlTest evaluateWithObject:urlStr];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>判断身份证(中国大陆)身份证是否合法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)isValidIDCardNo:(<span class="built_in">NSString</span> *)value &#123;</span><br><span class="line">value = [value stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceAndNewlineCharacterSet]];</span><br><span class="line"><span class="built_in">NSInteger</span> length =<span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (!value) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    length = value.length;</span><br><span class="line">    <span class="comment">//不满足15位和18位，即身份证错误</span></span><br><span class="line">    <span class="keyword">if</span> (length !=<span class="number">15</span> &amp;&amp; length !=<span class="number">18</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 省份代码</span></span><br><span class="line"><span class="built_in">NSArray</span> *areasArray = @[<span class="string">@&quot;11&quot;</span>,<span class="string">@&quot;12&quot;</span>, <span class="string">@&quot;13&quot;</span>,<span class="string">@&quot;14&quot;</span>, <span class="string">@&quot;15&quot;</span>,<span class="string">@&quot;21&quot;</span>, <span class="string">@&quot;22&quot;</span>,<span class="string">@&quot;23&quot;</span>, <span class="string">@&quot;31&quot;</span>,<span class="string">@&quot;32&quot;</span>, <span class="string">@&quot;33&quot;</span>,<span class="string">@&quot;34&quot;</span>, <span class="string">@&quot;35&quot;</span>,<span class="string">@&quot;36&quot;</span>, <span class="string">@&quot;37&quot;</span>,<span class="string">@&quot;41&quot;</span>, <span class="string">@&quot;42&quot;</span>,<span class="string">@&quot;43&quot;</span>, <span class="string">@&quot;44&quot;</span>,<span class="string">@&quot;45&quot;</span>, <span class="string">@&quot;46&quot;</span>,<span class="string">@&quot;50&quot;</span>, <span class="string">@&quot;51&quot;</span>,<span class="string">@&quot;52&quot;</span>, <span class="string">@&quot;53&quot;</span>,<span class="string">@&quot;54&quot;</span>, <span class="string">@&quot;61&quot;</span>,<span class="string">@&quot;62&quot;</span>, <span class="string">@&quot;63&quot;</span>,<span class="string">@&quot;64&quot;</span>, <span class="string">@&quot;65&quot;</span>,<span class="string">@&quot;71&quot;</span>, <span class="string">@&quot;81&quot;</span>,<span class="string">@&quot;82&quot;</span>, <span class="string">@&quot;91&quot;</span>];</span><br><span class="line"><span class="comment">// 检测省份身份行政区代码</span></span><br><span class="line"><span class="built_in">NSString</span> *valueStart2 = [value substringToIndex:<span class="number">2</span>];</span><br><span class="line"><span class="built_in">BOOL</span> areaFlag =<span class="literal">NO</span>; <span class="comment">//标识省份代码是否正确</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSString</span> *areaCode <span class="keyword">in</span> areasArray) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([areaCode isEqualToString:valueStart2]) &#123;</span><br><span class="line">        areaFlag =<span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (!areaFlag) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSRegularExpression</span> *regularExpression;</span><br><span class="line"><span class="built_in">NSUInteger</span> numberofMatch;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> year =<span class="number">0</span>;</span><br><span class="line"><span class="comment">//分为15位、18位身份证进行校验</span></span><br><span class="line"><span class="keyword">switch</span> (length) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">15</span>:</span><br><span class="line">        <span class="comment">//获取年份对应的数字</span></span><br><span class="line">        year = [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">6</span>,<span class="number">2</span>)].intValue +<span class="number">1900</span>;</span><br><span class="line">    <span class="keyword">if</span> (year %<span class="number">4</span> ==<span class="number">0</span> || (year %<span class="number">100</span> ==<span class="number">0</span> &amp;&amp; year %<span class="number">4</span> ==<span class="number">0</span>)) &#123;</span><br><span class="line">        <span class="comment">//创建正则表达式 NSRegularExpressionCaseInsensitive：不区分字母大小写的模式</span></span><br><span class="line">        regularExpression = [[<span class="built_in">NSRegularExpression</span> alloc]initWithPattern:<span class="string">@&quot;^[1-9][0-9]&#123;5&#125;[0-9]&#123;2&#125;((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]&#123;3&#125;$&quot;</span> options:<span class="built_in">NSRegularExpressionCaseInsensitive</span> error:<span class="literal">nil</span>];<span class="comment">//测试出生日期的合法性</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        regularExpression = [[<span class="built_in">NSRegularExpression</span> alloc]initWithPattern:<span class="string">@&quot;^[1-9][0-9]&#123;5&#125;[0-9]&#123;2&#125;((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]&#123;3&#125;$&quot;</span> options:<span class="built_in">NSRegularExpressionCaseInsensitive</span> error:<span class="literal">nil</span>];<span class="comment">//测试出生日期的合法性</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//使用正则表达式匹配字符串 NSMatchingReportProgress:找到最长的匹配字符串后调用block回调</span></span><br><span class="line">    numberofMatch = [regularExpression numberOfMatchesInString:value options:<span class="built_in">NSMatchingReportProgress</span> range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, value.length)];</span><br><span class="line">    <span class="keyword">if</span>(numberofMatch &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">case</span> <span class="number">18</span>:</span><br><span class="line">    year = [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">6</span>,<span class="number">4</span>)].intValue;</span><br><span class="line">    <span class="keyword">if</span> (year %<span class="number">4</span> ==<span class="number">0</span> || (year %<span class="number">100</span> ==<span class="number">0</span> &amp;&amp; year %<span class="number">4</span> ==<span class="number">0</span>)) &#123;</span><br><span class="line">        regularExpression = [[<span class="built_in">NSRegularExpression</span> alloc]initWithPattern:<span class="string">@&quot;^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|71|(8[12])|91)\\d&#123;4&#125;(((19|20)\\d&#123;2&#125;(0[13-9]|1[012])(0[1-9]|[12]\\d|30))|((19|20)\\d&#123;2&#125;(0[13578]|1[02])31)|((19|20)\\d&#123;2&#125;02(0[1-9]|1\\d|2[0-8]))|((19|20)([13579][26]|[2468][048]|0[048])0229))\\d&#123;3&#125;(\\d|X|x)?$&quot;</span> options:<span class="built_in">NSRegularExpressionCaseInsensitive</span> error:<span class="literal">nil</span>];<span class="comment">//测试出生日期的合法性</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        regularExpression = [[<span class="built_in">NSRegularExpression</span> alloc]initWithPattern:<span class="string">@&quot;^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|71|(8[12])|91)\\d&#123;4&#125;(((19|20)\\d&#123;2&#125;(0[13-9]|1[012])(0[1-9]|[12]\\d|30))|((19|20)\\d&#123;2&#125;(0[13578]|1[02])31)|((19|20)\\d&#123;2&#125;02(0[1-9]|1\\d|2[0-8]))|((19|20)([13579][26]|[2468][048]|0[048])0229))\\d&#123;3&#125;(\\d|X|x)?$&quot;</span> options:<span class="built_in">NSRegularExpressionCaseInsensitive</span> error:<span class="literal">nil</span>];<span class="comment">//测试出生日期的合法性</span></span><br><span class="line">    &#125;</span><br><span class="line">    numberofMatch = [regularExpression numberOfMatchesInString:value options:<span class="built_in">NSMatchingReportProgress</span> range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, value.length)];</span><br><span class="line">    <span class="keyword">if</span>(numberofMatch &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//1：校验码的计算方法 身份证号码17位数分别乘以不同的系数。从第一位到第十七位的系数分别为：7－9－10－5－8－4－2－1－6－3－7－9－10－5－8－4－2。将这17位数字和系数相乘的结果相加。</span></span><br><span class="line">        <span class="keyword">int</span> S = [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>,<span class="number">1</span>)].intValue*<span class="number">7</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">10</span>,<span class="number">1</span>)].intValue *<span class="number">7</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">1</span>,<span class="number">1</span>)].intValue*<span class="number">9</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">11</span>,<span class="number">1</span>)].intValue *<span class="number">9</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">2</span>,<span class="number">1</span>)].intValue*<span class="number">10</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">12</span>,<span class="number">1</span>)].intValue *<span class="number">10</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">3</span>,<span class="number">1</span>)].intValue*<span class="number">5</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">13</span>,<span class="number">1</span>)].intValue *<span class="number">5</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">4</span>,<span class="number">1</span>)].intValue*<span class="number">8</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">14</span>,<span class="number">1</span>)].intValue *<span class="number">8</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">5</span>,<span class="number">1</span>)].intValue*<span class="number">4</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">15</span>,<span class="number">1</span>)].intValue *<span class="number">4</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">6</span>,<span class="number">1</span>)].intValue*<span class="number">2</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">16</span>,<span class="number">1</span>)].intValue *<span class="number">2</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">7</span>,<span class="number">1</span>)].intValue *<span class="number">1</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">8</span>,<span class="number">1</span>)].intValue *<span class="number">6</span> + [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">9</span>,<span class="number">1</span>)].intValue *<span class="number">3</span>;</span><br><span class="line">        <span class="comment">//2：用加出来和除以11，看余数是多少？余数只可能有0－1－2－3－4－5－6－7－8－9－10这11个数字</span></span><br><span class="line">        <span class="keyword">int</span> Y = S %<span class="number">11</span>;</span><br><span class="line">        <span class="built_in">NSString</span> *M =<span class="string">@&quot;F&quot;</span>;</span><br><span class="line">        <span class="built_in">NSString</span> *JYM =<span class="string">@&quot;10X98765432&quot;</span>;</span><br><span class="line">        M = [JYM substringWithRange:<span class="built_in">NSMakeRange</span>(Y,<span class="number">1</span>)];<span class="comment">// 3：获取校验位</span></span><br><span class="line">        <span class="built_in">NSString</span> *lastStr = [value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">17</span>,<span class="number">1</span>)];</span><br><span class="line">        <span class="comment">//4：检测ID的校验位</span></span><br><span class="line">        <span class="keyword">if</span> ([lastStr isEqualToString:<span class="string">@&quot;x&quot;</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> ([M isEqualToString:<span class="string">@&quot;X&quot;</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ([M isEqualToString:[value substringWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">17</span>,<span class="number">1</span>)]]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-强弱引用"><a href="#8-强弱引用" class="headerlink" title="8.强弱引用"></a>8.强弱引用</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 推荐使用（摘自YYKit）</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Synthsize a weak or strong reference.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> Example:</span></span><br><span class="line"><span class="comment"> @weakify(self)</span></span><br><span class="line"><span class="comment"> [self doSomething^&#123;</span></span><br><span class="line"><span class="comment"> @strongify(self)</span></span><br><span class="line"><span class="comment"> if (!self) return;</span></span><br><span class="line"><span class="comment"> ...</span></span><br><span class="line"><span class="comment"> &#125;];</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> weakify</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __has_feature(objc_arc)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> weakify(object) autoreleasepool&#123;&#125; __weak __typeof__(object) weak##_##object = object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> weakify(object) autoreleasepool&#123;&#125; __block __typeof__(object) block##_##object = object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __has_feature(objc_arc)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> weakify(object) try&#123;&#125; @finally&#123;&#125; &#123;&#125; __weak __typeof__(object) weak##_##object = object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> weakify(object) try&#123;&#125; @finally&#123;&#125; &#123;&#125; __block __typeof__(object) block##_##object = object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> strongify</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __has_feature(objc_arc)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> strongify(object) autoreleasepool&#123;&#125; __typeof__(object) object = weak##_##object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> strongify(object) autoreleasepool&#123;&#125; __typeof__(object) object = block##_##object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __has_feature(objc_arc)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> strongify(object) try&#123;&#125; @finally&#123;&#125; __typeof__(object) object = weak##_##object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> strongify(object) try&#123;&#125; @finally&#123;&#125; __typeof__(object) object = block##_##object;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-NSLog的宏定义"><a href="#9-NSLog的宏定义" class="headerlink" title="9.NSLog的宏定义"></a>9.NSLog的宏定义</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NSLog(format,...) printf(<span class="meta-string">&quot;\n[%s] %s [第%d行] %s\n&quot;</span>,__TIME__,__FUNCTION__,__LINE__,[[NSString stringWithFormat:format,## __VA_ARGS__] UTF8String]);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NSLog(format, ...)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-判断是否为空"><a href="#10-判断是否为空" class="headerlink" title="10.判断是否为空"></a>10.判断是否为空</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> kStringIsEmpty(string)              (string == NULL || [string isKindOfClass:[NSNull class]] || string == nil || [string length] &lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> kArrayIsEmpty(array)                (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> kDictionaryIsEmpty(dictionary)      (dictionary == nil || [dictionary isKindOfClass:[NSNull class]] || dictionary.allKeys.count == 0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> kObjectIsEmpty(object)              (object == nil||[object isKindOfClass:[NSNull class]]||([object respondsToSelector:@selector(length)] &amp;&amp; [(NSData *)object length] == 0)|| ([object respondsToSelector:@selector(count)] &amp;&amp; [(NSArray *)object count] == 0))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="11-使用xib创建自定义View并在背景添加点击事件"><a href="#11-使用xib创建自定义View并在背景添加点击事件" class="headerlink" title="11.使用xib创建自定义View并在背景添加点击事件"></a>11.使用<code>xib</code>创建自定义View并在背景添加点击事件</h2><p><strong>说明：</strong><br><code>xib</code>创建的自定义视图，添加的背景点击动作不会触发点击事件，因此需要单独添加一个<code>xibView</code>，添加到自定义视图上，点击动作添加到<code>xibView</code>上就可以触发点击事件了，具体步骤如下：</p>
+<ul>
+<li>创建自定义<code>FSCommonView</code>、创建<code>FSCommonView.xib</code>、关联到自定义的<code>FSCommonView</code>。<br><img src="https://tva1.sinaimg.cn/large/0081Kckwly1glbkbvf4xaj30740bcdgc.jpg" alt="关联自定义视图"></li>
+<li>将xib添加到<code>FSCommonView</code>中<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FSCommonView</span> : <span class="title">UIView</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&quot;FSCommonView.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FSCommonView</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIView</span> *xibView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.xibView = [<span class="keyword">self</span> loadViewFromNib];</span><br><span class="line">        [<span class="keyword">self</span> settingUI];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)coder &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:coder];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.xibView = [<span class="keyword">self</span> loadViewFromNib];</span><br><span class="line">        [<span class="keyword">self</span> settingUI];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIView</span> *)loadViewFromNib &#123;</span><br><span class="line">    <span class="built_in">UIView</span> *xibView = [[<span class="built_in">NSBundle</span> mainBundle] loadNibNamed:<span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>]) owner:<span class="keyword">self</span> options:<span class="literal">nil</span>].firstObject;</span><br><span class="line">    xibView.frame = <span class="keyword">self</span>.bounds;</span><br><span class="line">    [xibView addGestureRecognizer:[[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(xibBgViewClick)]];</span><br><span class="line">    [<span class="keyword">self</span> addSubview:xibView];</span><br><span class="line">    <span class="keyword">return</span> xibView;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)settingUI &#123;</span><br><span class="line">  <span class="comment">// 设置背景色、圆角、边框、自定义子视图等。</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)xibBgViewClick &#123;</span><br><span class="line">  <span class="comment">// 背景点击事件</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="12-啄幕鸟"><a href="#12-啄幕鸟" class="headerlink" title="12.啄幕鸟"></a>12.啄幕鸟</h2></li>
+</ul>
+<blockquote>
+<p>啄幕鸟，阿里开源项目，即手机屏幕上的啄木鸟，专抓App里的Bug。啄幕鸟集合了UI检查、对象查看、方法监听等多种开发工具，通过拾取UI控件、查看对象属性、监听方法调用、App内抓包等，不依赖电脑联调，直接获取运行时数据，快速定位Bug，提高开发效率。</p>
+</blockquote>
+<p><strong>功能简介</strong></p>
+<blockquote>
+<ol>
+<li>UI检查：快速查看页面布局、UI控件间距、字体颜色、UI控件类名、对象属性/成员变量、图片URL等。</li>
+<li>JSON抓包：便捷JSON抓包工具，通过监听系统json解析抓包。</li>
+<li>方法监听：Bug听诊器，可监听App中任意OC方法的调用，输出调用参数、返回值等信息，可以通过屏幕日志输入监听、KVC取值等命令，支持后台配置命令。</li>
+<li>po命令：执行类似LLDB的po命令，在App运行时执行po命令，调用任意方法。</li>
+<li>系统信息：查看各种系统名称、版本、屏幕、UA等信息，支持外部添加信息。</li>
+<li>SandBox：查看沙盒文件，导出文件等。</li>
+<li>Bundle：查看、导出Bundle目录中的内容。</li>
+<li>Crash：查看Crash日志，需先打开一次Crash插件以开启Crash监控。</li>
+<li>Defaults：查看、新增、删除User Defaults。</li>
+<li>清除数据：清除所有沙盒数据、User Default。</li>
+<li>触点显示：显示手指触控。</li>
+<li>UI对比：支持将设计图导入到App中进行对比，并可画线、标注需修改的地方，方便UI走查。</li>
+<li>查看图片资源：查看、导出App中的资源图片。</li>
+<li>CPU：查看CPU占用。</li>
+<li>内存：查看内存占用。</li>
+<li>FPS：查看App帧率。</li>
+<li>网络流量：查看发送、接收网络流量。</li>
+</ol>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">pod</span> <span class="string">&#x27;YKWoodpecker&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>官方github地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/youku-sdk-tool-woodpecker.git">YKWoodpecker</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1glbk60pl6aj30u01hc47q.jpg" alt="啄幕鸟"></p>
+<p><strong>使用</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 显示啄幕鸟，启动默认打开UI检查插件</span></span><br><span class="line">[[YKWoodpeckerManager sharedInstance] show];</span><br></pre></td></tr></table></figure>
+<h2 id="13-ViewController的生命周期、执行顺序"><a href="#13-ViewController的生命周期、执行顺序" class="headerlink" title="13.ViewController的生命周期、执行顺序"></a>13.ViewController的生命周期、执行顺序</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> initWithCoder：通过nib文件初始化时触发。</span><br><span class="line"><span class="number">2.</span> awakeFromNib：nib文件被加载的时候，会发生一个awakeFromNib的消息到nib文件中的每个对象。      </span><br><span class="line"><span class="number">3.</span> loadView：开始加载视图控制器自带的view。</span><br><span class="line"><span class="number">4.</span> viewDidLoad：视图控制器的view被加载完成。  </span><br><span class="line"><span class="number">5.</span> viewWillAppear：视图控制器的view将要显示在window上。</span><br><span class="line"><span class="number">6.</span> updateViewConstraints：视图控制器的view开始更新AutoLayout约束。</span><br><span class="line"><span class="number">7.</span> viewWillLayoutSubviews：视图控制器的view将要更新内容视图的位置。</span><br><span class="line"><span class="number">8.</span> viewDidLayoutSubviews：视图控制器的view已经更新视图的位置。</span><br><span class="line"><span class="number">9.</span> viewDidAppear：视图控制器的view已经展示到window上。 </span><br><span class="line"><span class="number">10.</span> viewWillDisappear：视图控制器的view将要从window上消失。</span><br><span class="line"><span class="number">11.</span> viewDidDisappear：视图控制器的view已经从window上消失。</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-去除Cocopods第三方库部分警告和MobileCoreServices-framework过期的问题"><a href="#14-去除Cocopods第三方库部分警告和MobileCoreServices-framework过期的问题" class="headerlink" title="14. 去除Cocopods第三方库部分警告和MobileCoreServices.framework过期的问题"></a>14. 去除<code>Cocopods</code>第三方库部分警告和<code>MobileCoreServices.framework</code>过期的问题</h2><p>在<code>Podfile</code>的末尾处添加如下代码，再 <code>pod install</code></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">post_install <span class="keyword">do</span> |pi|</span><br><span class="line">    # 去除<span class="type">Pods</span>版本警告</span><br><span class="line">    pi.pods_project.targets.each <span class="keyword">do</span> |t|</span><br><span class="line">      t.build_configurations.each <span class="keyword">do</span> |config|</span><br><span class="line">        config.build_settings[&#x27;<span class="type">IPHONEOS_DEPLOYMENT_TARGET&#x27;</span>] = &#x27;<span class="number">9.0</span>&#x27;</span><br><span class="line">      end</span><br><span class="line">    end</span><br><span class="line">    # 替换<span class="type">Pods</span>引用的不再使用的静态库<span class="type">MobileCoreServices</span>.framework</span><br><span class="line">    framework = pi.pods_project.frameworks_group[<span class="string">&quot;iOS&quot;</span>][<span class="string">&quot;MobileCoreServices.framework&quot;</span>]</span><br><span class="line">    framework.referrers.each <span class="keyword">do</span> |ref|</span><br><span class="line">        <span class="keyword">if</span> ref.isa == <span class="string">&quot;PBXBuildFile&quot;</span></span><br><span class="line">            ref.remove_from_project</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    framework.remove_from_project</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-解决NSTimer循环引用的问题"><a href="#15-解决NSTimer循环引用的问题" class="headerlink" title="15. 解决NSTimer循环引用的问题"></a>15. 解决<code>NSTimer</code>循环引用的问题</h2><p>解决方法如下：</p>
+<ol>
+<li><p>方式一</p>
+<ul>
+<li>timer改为弱引用</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSTimer</span> *timer;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在适当的时机销毁timer</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillDisappear:animated];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.timer) &#123;</span><br><span class="line">        [<span class="keyword">self</span>.timer invalidate];</span><br><span class="line">        <span class="keyword">self</span>.timer = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>如果控制器<code>push</code>到下个控制器，<code>viewDidDisappear</code>执行后，timer被销毁，下次进入APP的时候还要重新创建</em></p>
+<ul>
+<li>在<code>viewWillAppear</code>开启定时器</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>.timer) &#123;</span><br><span class="line">        <span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(showMsg) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方式二</p>
+<p>为<code>self</code>添加<code>proxy</code></p>
+</li>
+</ol>
+<ol start="3">
+<li>方式三</li>
+</ol>
+<h2 id="16-lldb（gdb）常用的控制台调试命令？"><a href="#16-lldb（gdb）常用的控制台调试命令？" class="headerlink" title="16. lldb（gdb）常用的控制台调试命令？"></a>16. lldb（gdb）常用的控制台调试命令？</h2><blockquote>
+<ol>
+<li>p 输出基本类型。是打印命令，需要指定类型。是print的简写<pre><code>p (int)[[[self view] subviews] count]</code></pre>
+</li>
+<li>po 打印对象，会调用对象description方法。是print-object的简写<pre><code>po [self view]</code></pre>
+</li>
+<li>expr 可以在调试时动态执行指定表达式，并将结果打印出来。常用于在调试过程中修改变量的值。</li>
+<li>bt：打印调用堆栈，是thread backtrace的简写，加all可打印所有thread的堆栈</li>
+<li>br l：是breakpoint list的简写</li>
+</ol>
+</blockquote>
+<h2 id="17-iOS的沙盒目录结构"><a href="#17-iOS的沙盒目录结构" class="headerlink" title="17. iOS的沙盒目录结构"></a>17. iOS的沙盒目录结构</h2><blockquote>
+<p>1). Application：存放程序源文件，上架前经过数字签名，上架后不可修改。<br>2). Documents：常用目录，iCloud备份目录，存放数据。（这里不能存缓存文件，否则上架不被通过）<br>3). Library：<br>     Caches：存放体积大又不需要备份的数据。(常用的缓存路径)<br>     Preference：设置目录，iCloud会备份设置信息。<br>4). tmp：存放临时文件，不会被备份，而且这个文件下的数据有可能随时被清除的可能。</p>
+</blockquote>
+<h2 id="18-安装包优化"><a href="#18-安装包优化" class="headerlink" title="18. 安装包优化"></a>18. 安装包优化</h2><h3 id="1-1-安装包的构成"><a href="#1-1-安装包的构成" class="headerlink" title="1.1 安装包的构成"></a>1.1 安装包的构成</h3><p>包含资源和可执行文件 Mach-o 两部分，其中资源包括 Assets.car 文件和其他资源</p>
+<h4 id="1-1-1-Mach-o"><a href="#1-1-1-Mach-o" class="headerlink" title="1.1.1 Mach-o"></a>1.1.1 Mach-o</h4><p>Mach-o是iOS上的可执行文件，是由代码源文件经过编译和静态链接获取的。经过App Slicing之后的Mach-o文件往往只包含单个架构。</p>
+<h4 id="1-1-2-Assets-car"><a href="#1-1-2-Assets-car" class="headerlink" title="1.1.2 Assets.car"></a>1.1.2 Assets.car</h4><p>Assets.car 是Asset catalog 的构建产物。Xcode中的actool负责构建Assets.car 。在构建Assets.car的过程中actool会按照一定的策略编码算法，对png图片进行编码。</p>
+<h3 id="1-2-资源大小优化"><a href="#1-2-资源大小优化" class="headerlink" title="1.2 资源大小优化"></a>1.2 资源大小优化</h3><h4 id="1-2-1-使用合适的资源压缩配置"><a href="#1-2-1-使用合适的资源压缩配置" class="headerlink" title="1.2.1 使用合适的资源压缩配置"></a>1.2.1 使用合适的资源压缩配置</h4><h4 id="1-2-2-使用-RGB-with-palette-压缩图片"><a href="#1-2-2-使用-RGB-with-palette-压缩图片" class="headerlink" title="1.2.2 使用 RGB with palette 压缩图片"></a>1.2.2 使用 RGB with palette 压缩图片</h4><h2 id="19-UITableView键盘隐藏的问题"><a href="#19-UITableView键盘隐藏的问题" class="headerlink" title="19. UITableView键盘隐藏的问题"></a>19. UITableView键盘隐藏的问题</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITableView</span> *tableView;</span><br><span class="line">- (<span class="built_in">UITableView</span> *)tableView &#123;</span><br><span class="line">    <span class="keyword">if</span> (!_tableView) &#123;</span><br><span class="line">        _tableView = [[<span class="built_in">UITableView</span> alloc] init];</span><br><span class="line">      	<span class="comment">// 控制键盘隐藏</span></span><br><span class="line">        <span class="built_in">UITableViewController</span> *tvc = [[<span class="built_in">UITableViewController</span> alloc] initWithStyle:<span class="built_in">UITableViewStyleGrouped</span>];</span><br><span class="line">        [<span class="keyword">self</span> addChildViewController:tvc];</span><br><span class="line">        _tableView = tvc.tableView;</span><br><span class="line">      </span><br><span class="line">        _tableView.delegate = <span class="keyword">self</span>;</span><br><span class="line">        _tableView.dataSource = <span class="keyword">self</span>;</span><br><span class="line">      	<span class="comment">// 隐藏键盘</span></span><br><span class="line">        _tableView.separatorStyle = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _tableView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="20-数组去重"><a href="#20-数组去重" class="headerlink" title="20. 数组去重"></a>20. 数组去重</h2><ul>
+<li><p>NSOrderedSet去重</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (NSArray *)removeDuplicateArr:(NSArray *)arr &#123;</span><br><span class="line">    NSOrderedSet *orderSet &#x3D; [NSOrderedSet orderedSetWithArray:arr];</span><br><span class="line">    return orderSet.array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ValueForKeyPath去重</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)removeDuplicateArr:(<span class="built_in">NSArray</span> *)arr &#123;</span><br><span class="line">    arr = [arr valueForKeyPath:<span class="string">@&quot;@distinctUnionOfObjects.self&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)removeDuplicateArr3:(<span class="built_in">NSArray</span> *)arr &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *mArr = [<span class="built_in">NSMutableArray</span> arrayWithCapacity:arr.count];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *str <span class="keyword">in</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![mArr containsObject:str]) &#123;</span><br><span class="line">            [mArr addObject:str];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSArray</span> *)removeDuplicateArr4:(<span class="built_in">NSArray</span> *)arr &#123;</span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *mDict = [<span class="built_in">NSMutableDictionary</span> dictionaryWithCapacity:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *str <span class="keyword">in</span> arr) &#123;</span><br><span class="line">        [mDict setObject:str forKey:str];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mDict.allKeys;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSArray</span> *)removeDuplicateArr5:(<span class="built_in">NSArray</span> *)arr &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *mArr = [<span class="built_in">NSMutableArray</span> arrayWithArray:arr];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *str <span class="keyword">in</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([mArr containsObject:str]) &#123;</span><br><span class="line">            [mArr removeObject:str];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2></li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>个人博客:</strong> 🏡 <a href="https://forgetsou.github.io/">ForgetSou</a></p>
+</blockquote>
+<hr>
+
+    </div>
+
+    
+    
+    
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="ForgetSou 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="ForgetSou 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ForgetSou
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://forgetsou.github.io/2020/11/12/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/" title="日常开发小知识点收集">https://forgetsou.github.io/2020/11/12/日常开发小知识点收集/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://github.com/ForgetSou">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+
+            <span class="label">GitHub</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://weibo.com/5887063593">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/p710041025">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+              <a href="/tags/%E6%97%A5%E5%B8%B8%E6%94%B6%E9%9B%86/" rel="tag"><i class="fa fa-tag"></i> 日常收集</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/12/%E6%97%A5%E5%B8%B8%E6%8A%A5%E9%94%99%E6%94%B6%E9%9B%86%E8%AE%B0%E5%BD%95/" rel="prev" title="日常报错收集记录">
+      <i class="fa fa-chevron-left"></i> 日常报错收集记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93-RealmSwift%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="数据库-RealmSwift的使用/数据迁移">
+      数据库-RealmSwift的使用/数据迁移 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%A0%E9%99%A4ToolBar%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-text">1.删除ToolBar下面的分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9TextField%E7%9A%84%E8%93%9D%E8%89%B2%E6%88%96%E6%A9%99%E8%89%B2%E8%BE%B9%E6%A1%86"><span class="nav-text">2.修改TextField的蓝色或橙色边框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%89%93%E5%BC%80%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6"><span class="nav-text">3.打开已安装的其他软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5"><span class="nav-text">4.打开网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Color%E7%94%9F%E6%88%90%E7%BA%AF%E8%89%B2%E5%9B%BE%E7%89%87%EF%BC%88iOS%EF%BC%89"><span class="nav-text">5.Color生成纯色图片（iOS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-text">6.时间格式转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%90%88%E6%B3%95%E6%80%A7"><span class="nav-text">7.合法性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%BC%BA%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="nav-text">8.强弱引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-NSLog%E7%9A%84%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">9.NSLog的宏定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA"><span class="nav-text">10.判断是否为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E4%BD%BF%E7%94%A8xib%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%B9%B6%E5%9C%A8%E8%83%8C%E6%99%AF%E6%B7%BB%E5%8A%A0%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="nav-text">11.使用xib创建自定义View并在背景添加点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%95%84%E5%B9%95%E9%B8%9F"><span class="nav-text">12.啄幕鸟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-ViewController%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E3%80%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-text">13.ViewController的生命周期、执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E5%8E%BB%E9%99%A4Cocopods%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E9%83%A8%E5%88%86%E8%AD%A6%E5%91%8A%E5%92%8CMobileCoreServices-framework%E8%BF%87%E6%9C%9F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">14. 去除Cocopods第三方库部分警告和MobileCoreServices.framework过期的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E8%A7%A3%E5%86%B3NSTimer%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">15. 解决NSTimer循环引用的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-lldb%EF%BC%88gdb%EF%BC%89%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="nav-text">16. lldb（gdb）常用的控制台调试命令？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-iOS%E7%9A%84%E6%B2%99%E7%9B%92%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">17. iOS的沙盒目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E5%AE%89%E8%A3%85%E5%8C%85%E4%BC%98%E5%8C%96"><span class="nav-text">18. 安装包优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">1.1 安装包的构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-Mach-o"><span class="nav-text">1.1.1 Mach-o</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-Assets-car"><span class="nav-text">1.1.2 Assets.car</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%B5%84%E6%BA%90%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96"><span class="nav-text">1.2 资源大小优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E4%BD%BF%E7%94%A8%E5%90%88%E9%80%82%E7%9A%84%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9%E9%85%8D%E7%BD%AE"><span class="nav-text">1.2.1 使用合适的资源压缩配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-%E4%BD%BF%E7%94%A8-RGB-with-palette-%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87"><span class="nav-text">1.2.2 使用 RGB with palette 压缩图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-UITableView%E9%94%AE%E7%9B%98%E9%9A%90%E8%97%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">19. UITableView键盘隐藏的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="nav-text">20. 数组去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21"><span class="nav-text">21.</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ForgetSou"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">ForgetSou</p>
+  <div class="site-description" itemprop="description"> 开发</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ForgetSou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ForgetSou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:johnvertois@gmail.com" title="E-Mail → mailto:johnvertois@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/5887063593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;5887063593" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/p710041025" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;p710041025" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/f7d42a961b4e" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;f7d42a961b4e" rel="noopener" target="_blank"><i class="fab fa-accusoft fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_43956503" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43956503" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.im/user/1231079303818232" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;1231079303818232" rel="noopener" target="_blank"><i class="fab fa-joget fa-fw"></i>掘金</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/forgetsou" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;forgetsou" rel="noopener" target="_blank"><i class="fab fa-cotton-bureau fa-fw"></i>博客园</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/" title="YouTube → https:&#x2F;&#x2F;youtube.com" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com&#x2F;" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.google.com/" title="https:&#x2F;&#x2F;www.google.com&#x2F;" rel="noopener" target="_blank">谷歌</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.youtube.com/" title="https:&#x2F;&#x2F;www.youtube.com&#x2F;" rel="noopener" target="_blank">油管</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ForgetSou</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:27</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://forgetsou.github.io/2020/11/12/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '7e4ce61944520b5b0c5c',
+      clientSecret: '084dc8d7abf44d0ff024ebc4aab117974c64b131',
+      repo        : 'forgetsou.github.io',
+      owner       : 'ForgetSou',
+      admin       : ['p710041025'],
+      id          : '8411e6f8c18102a19824d7b40e07c4a1',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- 樱花特效 -->
+<script async src="/js/fairyDustCursor.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+</script>
+</html>

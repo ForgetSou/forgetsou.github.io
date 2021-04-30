@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xo1JSDmfbIZmzjUSZnJPiPQx5HNwXg9SLGEhCGpQr84">
+  <meta name="baidu-site-verification" content="1ef612086873632d1877d0621452f9d9">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"forgetsou.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"All","padding":18,"offset":12,"onmobile":true,"dimmer":true},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"flipXIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/bf51a722.js","daovoice")
+  daovoice('init', {
+      app_id: "bf51a722"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <meta name="description" content="一.define和const常量的区别 define 是定义宏的指令，程序在预处理阶段进行替换，在程序运行时并没有用 define 定义的宏，系统不会为其分配内存并在编译时也不会进行数据类型检查，大量使用宏会导致二进制文件变大。 const 定义的常量是在程序运行时存放在常量表中，系统为其分配内存并在编译时进行数据类型检查。 define 不能调试，const可以调试； define 可以定义简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-10-15 OC">
+<meta property="og:url" content="https://forgetsou.github.io/2020/10/16/2020-10-15-OC/index.html">
+<meta property="og:site_name" content="ForgetSou | Blog">
+<meta property="og:description" content="一.define和const常量的区别 define 是定义宏的指令，程序在预处理阶段进行替换，在程序运行时并没有用 define 定义的宏，系统不会为其分配内存并在编译时也不会进行数据类型检查，大量使用宏会导致二进制文件变大。 const 定义的常量是在程序运行时存放在常量表中，系统为其分配内存并在编译时进行数据类型检查。 define 不能调试，const可以调试； define 可以定义简单">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-16T02:38:53.000Z">
+<meta property="article:modified_time" content="2021-04-21T04:13:56.671Z">
+<meta property="article:author" content="ForgetSou">
+<meta property="article:tag" content="OC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://forgetsou.github.io/2020/10/16/2020-10-15-OC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2020-10-15 OC | ForgetSou | Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180944386-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-180944386-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?441a42b7d90588dbb3381cf389dd79aa";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="ForgetSou | Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ForgetSou | Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">❤ 武统台湾 刻不容缓 ❤</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-首页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ForgetSou" class="github-corner" title="GitHub" aria-label="GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forgetsou.github.io/2020/10/16/2020-10-15-OC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ForgetSou">
+      <meta itemprop="description" content=" 开发">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ForgetSou | Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2020-10-15 OC
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-16 10:38:53" itemprop="dateCreated datePublished" datetime="2020-10-16T10:38:53+08:00">2020-10-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 12:13:56" itemprop="dateModified" datetime="2021-04-21T12:13:56+08:00">2021-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一-define和const常量的区别"><a href="#一-define和const常量的区别" class="headerlink" title="一.define和const常量的区别"></a>一.define和const常量的区别</h1><blockquote>
+<p>define 是定义宏的指令，程序在预处理阶段进行替换，在程序运行时并没有用 define 定义的宏，系统不会为其分配内存并在编译时也不会进行数据类型检查，大量使用宏会导致二进制文件变大。</p>
+<p>const 定义的常量是在程序运行时存放在常量表中，系统为其分配内存并在编译时进行数据类型检查。</p>
+<p>define 不能调试，const可以调试；</p>
+<p>define 可以定义简单函数，const只能定义常量</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 宏</span><br><span class="line">#define HSCoder @&quot;你好“</span><br><span class="line">&#x2F;&#x2F; 变量</span><br><span class="line">NSString *coder &#x3D; @&quot;你好&quot;;</span><br><span class="line">&#x2F;&#x2F; 全局变量</span><br><span class="line">extern NSString *coder;</span><br><span class="line">&#x2F;&#x2F; 全局常量</span><br><span class="line">extern NSString *const coder;</span><br><span class="line">&#x2F;&#x2F; 全局指针变量</span><br><span class="line">extern const NSString *coder;</span><br><span class="line">extern NSString const *coder;</span><br><span class="line">&#x2F;&#x2F; 局部常量</span><br><span class="line">static NSString *const coder &#x3D; @&quot;你好&quot;;</span><br><span class="line">&#x2F;&#x2F; 常量</span><br><span class="line">const NSString *coder;&#x2F;&#x2F; *corder不能被修改 corder可以被修改</span><br><span class="line">NSString const *coder;&#x2F;&#x2F; *corder不能被修改 corder可以被修改</span><br><span class="line">NSString *const coder;&#x2F;&#x2F; *corder可以被修改 corder不能被修改</span><br><span class="line">&#x2F;&#x2F; const右边的不能被修改</span><br><span class="line">&#x2F;&#x2F; 当我们定义一个常量且不想被修改应该使用 NSString *const coder;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-结构体-struct-和类-class-的区别"><a href="#二-结构体-struct-和类-class-的区别" class="headerlink" title="二.结构体( struct )和类( class )的区别"></a>二.结构体( struct )和类( class )的区别</h1><p>struct 和 class都可以将多个数据封装为一个整体</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 结构体(struct)</span><br><span class="line">struct People &#123;</span><br><span class="line">     NSString *name;</span><br><span class="line">     int age;</span><br><span class="line">     CGFloat height;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F; 类(class)</span><br><span class="line">@interface People : NSObject &#123;</span><br><span class="line">    NSString *name;</span><br><span class="line">    int age;</span><br><span class="line">    CGFloat height;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>struct 只能封装数据，class可以封装行为</li>
+<li>struct 变量分配在栈空间（如果是一个局部变量的情况下），class对象分配在堆空间。</li>
+<li>赋值 ：结构体是（拷贝），对象之间是（地址）</li>
+<li>如果待封装的数据有属性也有方法，只能使用class</li>
+<li>如果属性较少，使用struct（分配在栈，提高运行效率）；属性较多时使用class</li>
+</ul>
+<h1 id="三-synthesize和-dynamic的区别"><a href="#三-synthesize和-dynamic的区别" class="headerlink" title="三.@synthesize和@dynamic的区别"></a>三.@synthesize和@dynamic的区别</h1><p>@dynamic 需要自己实现 setter getter方法</p>
+<p>@synthesize 系统会自动生成 setter getter方法，默认定义一个属性时，系统会自动生成，不需要自己手动写，自己手动添加 setter  或 getter方法后会覆盖系统默认的 setter 和 getter 方法。</p>
+<h1 id="四-property的本质"><a href="#四-property的本质" class="headerlink" title="四.@property的本质"></a>四.@property的本质</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@property &#x3D; ivar(实例变量) + setter + getter</span><br></pre></td></tr></table></figure>
+<p>property（属性）的主要作用是封装对象的属性，对象通常会把需要的数据保存为各种ivar（实例变量），实例变量一般通过存取方法来访问ivar。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#import &lt;Foundation&#x2F;Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface PZMan : NSObject</span><br><span class="line"></span><br><span class="line">@property (strong, nonatomic) NSString *subName;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">#import &quot;PZMan.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation PZMan</span><br><span class="line">@synthesize subName &#x3D; _subName;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; setter方法</span><br><span class="line">- (void)setSubName:(NSString *)subName &#123;</span><br><span class="line">    _subName &#x3D; subName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; getter方法</span><br><span class="line">- (NSString *)subName &#123;</span><br><span class="line">    if (_subName.length &gt; 0) &#123;</span><br><span class="line">        return @&quot;PZ&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return _subName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h1 id="五-Mac下终端升级（iTem2-oh-my-zsh-powerlevel10k）"><a href="#五-Mac下终端升级（iTem2-oh-my-zsh-powerlevel10k）" class="headerlink" title="五.Mac下终端升级（iTem2 + oh-my-zsh + powerlevel10k）"></a>五.Mac下终端升级（iTem2 + oh-my-zsh + powerlevel10k）</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43269020/article/details/105853693">https://blog.csdn.net/weixin_43269020/article/details/105853693</a></p>
+<h1 id="六-iOS14-适配"><a href="#六-iOS14-适配" class="headerlink" title="六.iOS14 适配"></a>六.iOS14 适配</h1><ol>
+<li><p><strong>UIDatePicker</strong></p>
+<p>Xcode12 UIDatePicker 需要在设置frame之前添加preferredDatePickerStyle</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef NS_ENUM(NSInteger, UIDatePickerStyle) &#123;</span><br><span class="line">    &#x2F;&#x2F;&#x2F; Automatically pick the best style available for the current platform &amp; mode.</span><br><span class="line">    UIDatePickerStyleAutomatic,</span><br><span class="line">    &#x2F;&#x2F;&#x2F; Use the wheels (UIPickerView) style. Editing occurs inline.</span><br><span class="line">    UIDatePickerStyleWheels,</span><br><span class="line">    &#x2F;&#x2F;&#x2F; Use a compact style for the date picker. Editing occurs in an overlay.</span><br><span class="line">    UIDatePickerStyleCompact,</span><br><span class="line">    &#x2F;&#x2F;&#x2F; Use a style for the date picker that allows editing in place.</span><br><span class="line">    UIDatePickerStyleInline API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, watchos),</span><br><span class="line">&#125; API_AVAILABLE(ios(13.4)) API_UNAVAILABLE(tvos, watchos);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; Request a style for the date picker. If the style changed, then the date picker may need to be resized and will generate a layout pass to display correctly.</span><br><span class="line">@property (nonatomic, readwrite, assign) UIDatePickerStyle preferredDatePickerStyle API_AVAILABLE(ios(13.4)) API_UNAVAILABLE(tvos, watchos);</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UIDatePicker *picker &#x3D; [[UIDatePicker alloc] init];</span><br><span class="line">picker.datePickerMode &#x3D; UIDatePickerModeDateAndTime;</span><br><span class="line">if (@available(iOS 13.4, *)) &#123;</span><br><span class="line">    picker.preferredDatePickerStyle &#x3D; UIDatePickerStyleAutomatic;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    &#x2F;&#x2F; Fallback on earlier versions</span><br><span class="line">&#125;</span><br><span class="line">picker.frame &#x3D; CGRectMake(0, 0, self.view.frame.size.width, 200);</span><br><span class="line">[self.view addSubview:picker];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>复制黏贴</strong></p>
+<p>弹出提示的原因是使用 UIPasteboard 访问用户数据，访问以下数据都会弹出 toast 提示。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@property(nullable,nonatomic,copy) NSString *string API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line">@property(nullable,nonatomic,copy) NSArray&lt;NSString *&gt; *strings API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line"></span><br><span class="line">@property(nullable,nonatomic,copy) NSURL *URL API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line">@property(nullable,nonatomic,copy) NSArray&lt;NSURL *&gt; *URLs API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line"></span><br><span class="line">@property(nullable,nonatomic,copy) UIImage *image API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line">@property(nullable,nonatomic,copy) NSArray&lt;UIImage *&gt; *images API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line"></span><br><span class="line">@property(nullable,nonatomic,copy) UIColor *color API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br><span class="line">@property(nullable,nonatomic,copy) NSArray&lt;UIColor *&gt; *colors API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos);</span><br></pre></td></tr></table></figure>
+
+<p><strong>iOS14 新增了两个 API 可以用于规避该提示。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;&#x2F; NSString value, suitable for implementing &quot;Paste and Go&quot;</span><br><span class="line">UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternProbableWebURL API_AVAILABLE(ios(14.0));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; NSString value, suitable for implementing &quot;Paste and Search&quot;</span><br><span class="line">UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternProbableWebSearch API_AVAILABLE(ios(14.0));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 可用于规避提示，但只能用于判断剪切板中是否有 URL，并不是真正的访问剪贴板数据，也拿不到剪切板的真实数据。</span><br><span class="line">&#x2F;&#x2F; Detection</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&#x2F; Detects patterns in the first pasteboard item.</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param patterns Detect only these patterns.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param completionHandler Receives which patterns were detected, or an error.</span><br><span class="line">- (void)detectPatternsForPatterns:(NSSet&lt;UIPasteboardDetectionPattern&gt; *)patterns</span><br><span class="line">                completionHandler:(void(^)(NSSet&lt;UIPasteboardDetectionPattern&gt; * _Nullable,</span><br><span class="line">                                           NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));</span><br><span class="line">                                           </span><br><span class="line">&#x2F;&#x2F;&#x2F; 可用于规避提示，但只能用于判断剪切板中是否有 URL，并不是真正的访问剪贴板数据，也拿不到剪切板的真实数据。</span><br><span class="line">&#x2F;&#x2F;&#x2F; Detects patterns in the specified pasteboard items.</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param patterns Detect only these patterns.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param itemSet Specifies which pasteboard items by their position. Nil means all items.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param completionHandler Receives which patterns were detected per item specified,</span><br><span class="line">&#x2F;&#x2F;&#x2F;                          or an error.</span><br><span class="line">- (void)detectPatternsForPatterns:(NSSet&lt;UIPasteboardDetectionPattern&gt; *)patterns</span><br><span class="line">                        inItemSet:(NSIndexSet * _Nullable)itemSet</span><br><span class="line">                completionHandler:(void(^)(NSArray&lt;NSSet&lt;UIPasteboardDetectionPattern&gt; *&gt; * _Nullable,</span><br><span class="line">                                           NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));</span><br><span class="line">                                           </span><br><span class="line">                                           </span><br><span class="line">&#x2F;&#x2F;&#x2F; 可以获得具体的 URL 信息，但是会触发剪切板提示。并且实测当用户剪切板中包含多个 URL 时只会返回第一个。</span><br><span class="line">&#x2F;&#x2F;&#x2F; Detects patterns and corresponding values in the first pasteboard item.</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param patterns Detect only these patterns.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param completionHandler Receives which patterns and values were detected, or an error.</span><br><span class="line">- (void)detectValuesForPatterns:(NSSet&lt;UIPasteboardDetectionPattern&gt; *)patterns</span><br><span class="line">              completionHandler:(void(^)(NSDictionary&lt;UIPasteboardDetectionPattern, id&gt; * _Nullable,</span><br><span class="line">                                         NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));</span><br><span class="line">                                         </span><br><span class="line">&#x2F;&#x2F;&#x2F; 可以获得具体的 URL 信息，但是会触发剪切板提示。并且实测当用户剪切板中包含多个 URL 时只会返回第一个。</span><br><span class="line">&#x2F;&#x2F;&#x2F; Detects patterns and corresponding values in the specified pasteboard items.</span><br><span class="line">&#x2F;&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param patterns Detect only these patterns.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param itemSet Specifies which pasteboard items by their position. Nil means all items.</span><br><span class="line">&#x2F;&#x2F;&#x2F; @param completionHandler Receives which patterns and values were detected per item specified,</span><br><span class="line">&#x2F;&#x2F;&#x2F;                          or an error.</span><br><span class="line">- (void)detectValuesForPatterns:(NSSet&lt;UIPasteboardDetectionPattern&gt; *)patterns</span><br><span class="line">                      inItemSet:(NSIndexSet * _Nullable)itemSet</span><br><span class="line">              completionHandler:(void(^)(NSArray&lt;NSDictionary&lt;UIPasteboardDetectionPattern, id&gt; *&gt; * _Nullable,</span><br><span class="line">                                         NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用示例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 剪切板</span><br><span class="line">UIPasteboard *board &#x3D; [UIPasteboard generalPasteboard];</span><br><span class="line">if (@available(iOS 14.0, *)) &#123;</span><br><span class="line">    NSSet *patterns &#x3D; [NSSet setWithObjects:UIPasteboardDetectionPatternProbableWebURL, UIPasteboardDetectionPatternNumber, UIPasteboardDetectionPatternProbableWebSearch, nil];</span><br><span class="line">    [board detectPatternsForPatterns:patterns</span><br><span class="line">                   completionHandler:^(NSSet&lt;UIPasteboardDetectionPattern&gt; * _Nullable set, NSError * _Nullable error) &#123;</span><br><span class="line">        BOOL hasNumber &#x3D; NO, hasURL &#x3D; NO, hasSearch &#x3D; NO;</span><br><span class="line">        for (NSString *type in set) &#123;</span><br><span class="line">            if ([type isEqualToString:UIPasteboardDetectionPatternProbableWebURL]) &#123;</span><br><span class="line">                hasURL &#x3D; YES;</span><br><span class="line">            &#125; else if ([type isEqualToString:UIPasteboardDetectionPatternNumber]) &#123;</span><br><span class="line">                hasNumber &#x3D; YES;</span><br><span class="line">            &#125; else if ([type isEqualToString:UIPasteboardDetectionPatternProbableWebSearch]) &#123;</span><br><span class="line">                hasSearch &#x3D; YES;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (hasSearch) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        if (hasURL) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        if (hasNumber) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 不能使用.string或.strings否则还是会弹出提示框</span><br><span class="line">NSString *pastString &#x3D; board.string;</span><br><span class="line">NSLog(@&quot;pastString &#x3D; %@&quot;, pastString);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>KVC（UIPageControl的pageimage）</strong></p>
+<p>​        私有方法 KVC 不允许使用，日志报 <code>&#39;setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key _pageImage.&#39;</code><br>​         在iOS14下设置<code>UIPageControl</code>的<code>pageimage</code>，会导致奔溃，不能再用了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (@available(iOS 14.0,*)) &#123;</span><br><span class="line">   pageControl.preferredIndicatorImage &#x3D; [self imageWithColor:[UIColor whiteColor]];</span><br><span class="line">   pageControl.currentPageIndicatorTintColor &#x3D; [UIColor redColor];</span><br><span class="line">   pageControl.pageIndicatorTintColor &#x3D; [UIColor blueColor];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">   [pageControl setValue:[UIImage imageNamed:@&quot;pageContrImg&quot;]forKeyPath:@&quot;pageImage&quot;];</span><br><span class="line">   [pageControl setValue:[UIImage imageNamed:@&quot;pageContrCurrentImg&quot;]forKeyPath:@&quot;currentPageImage&quot;];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>TableViewCell</strong></p>
+<p>​        xcode12上cell添加button，不能<code>[self addSubview:self.cellBtn]</code> 需要<code>[self.contentView addSubview:self.cellBtn]</code>，<code>contentView</code>的层级被提上来了，<code>self addSubview</code>会导致<code>button</code>不响应点击事件.也可以在添加控件之前提前调用<code>contentView</code></p>
+</li>
+<li><p><strong>相机权限</strong></p>
+<p>​        iOS14 新增了<code>Limited Photo Library Access</code> 模式，在授权弹窗中增加了 <code>Select Photo</code> 选项。用户可以在 App 请求调用相册时选择部分照片让 App 读取。从 App 的视⻆来看，你的相册里就只有这几张照片，App 无法得知其它照片的存在。</p>
+<p>​        <code>PHAuthorizationStatusLimited</code> 时，如果未进行适配，有可能会在每次触发相册功能时都进行弹窗询问用户是否需要修改照片权限。</p>
+<p>​        对于这种情况可通过在 <code>Info.plist</code> 中设置<code>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</code>的值为<code>YES</code>来阻止该弹窗反复弹出，并且可通过下面这个 API 来主动控制何时弹出<code>PHPickerViewController</code>进行照片选择。</p>
+<p>​        具体可以参考文章<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1803bd950b90">iOS14 隐私适配及部分解决方案</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="ForgetSou 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="ForgetSou 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ForgetSou
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://forgetsou.github.io/2020/10/16/2020-10-15-OC/" title="2020-10-15 OC">https://forgetsou.github.io/2020/10/16/2020-10-15-OC/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://github.com/ForgetSou">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+
+            <span class="label">GitHub</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://weibo.com/5887063593">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/p710041025">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/13/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%912020-10-16-OC/" rel="prev" title="【面试题】2020-10-16 OC">
+      <i class="fa fa-chevron-left"></i> 【面试题】2020-10-16 OC
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/16/%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95/" rel="next" title="快速算法">
+      快速算法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-define%E5%92%8Cconst%E5%B8%B8%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">一.define和const常量的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E7%BB%93%E6%9E%84%E4%BD%93-struct-%E5%92%8C%E7%B1%BB-class-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">二.结构体( struct )和类( class )的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-synthesize%E5%92%8C-dynamic%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">三.@synthesize和@dynamic的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-property%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-text">四.@property的本质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-Mac%E4%B8%8B%E7%BB%88%E7%AB%AF%E5%8D%87%E7%BA%A7%EF%BC%88iTem2-oh-my-zsh-powerlevel10k%EF%BC%89"><span class="nav-text">五.Mac下终端升级（iTem2 + oh-my-zsh + powerlevel10k）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD-iOS14-%E9%80%82%E9%85%8D"><span class="nav-text">六.iOS14 适配</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ForgetSou"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">ForgetSou</p>
+  <div class="site-description" itemprop="description"> 开发</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ForgetSou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ForgetSou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:johnvertois@gmail.com" title="E-Mail → mailto:johnvertois@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/5887063593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;5887063593" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/p710041025" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;p710041025" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/f7d42a961b4e" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;f7d42a961b4e" rel="noopener" target="_blank"><i class="fab fa-accusoft fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_43956503" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43956503" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.im/user/1231079303818232" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;1231079303818232" rel="noopener" target="_blank"><i class="fab fa-joget fa-fw"></i>掘金</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/forgetsou" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;forgetsou" rel="noopener" target="_blank"><i class="fab fa-cotton-bureau fa-fw"></i>博客园</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/" title="YouTube → https:&#x2F;&#x2F;youtube.com" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com&#x2F;" rel="noopener" target="_blank">百度</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.google.com/" title="https:&#x2F;&#x2F;www.google.com&#x2F;" rel="noopener" target="_blank">谷歌</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.youtube.com/" title="https:&#x2F;&#x2F;www.youtube.com&#x2F;" rel="noopener" target="_blank">油管</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ForgetSou</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:27</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://forgetsou.github.io/2020/10/16/2020-10-15-OC/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '7e4ce61944520b5b0c5c',
+      clientSecret: '084dc8d7abf44d0ff024ebc4aab117974c64b131',
+      repo        : 'forgetsou.github.io',
+      owner       : 'ForgetSou',
+      admin       : ['p710041025'],
+      id          : '276cd4a5f15a929915ecbc2e3c7dbacc',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- 樱花特效 -->
+<script async src="/js/fairyDustCursor.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+</script>
+</html>
